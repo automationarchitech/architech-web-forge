@@ -53,7 +53,7 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
             Ready to Automate?
           </h2>
-          <div ref={titleRef} className={`group ${isMobile ? 'lg:group' : ''}`}>
+          <div ref={titleRef} className={`group`}>
             <p className={`text-xl text-gray-500 max-w-3xl mx-auto duration-300`}>
               Let's discuss how we can transform your business with intelligent automation solutions.
             </p>
