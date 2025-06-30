@@ -1,5 +1,6 @@
 
 import { Brain, Database, Workflow, ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -13,7 +14,8 @@ const Services = () => {
         "Intelligent content generation",
         "RAG (Retrieval Augmented Generation) systems",
         "AI-powered customer support bots"
-      ]
+      ],
+      link: "/services/llm-applications"
     },
     {
       icon: Database,
@@ -25,7 +27,8 @@ const Services = () => {
         "Data validation & cleaning",
         "ETL/ELT workflow automation",
         "API integration & monitoring"
-      ]
+      ],
+      link: "/services/data-pipelines"
     },
     {
       icon: Workflow,
@@ -37,7 +40,8 @@ const Services = () => {
         "Custom webhook development",
         "Event-driven architectures",
         "Cross-platform data synchronization"
-      ]
+      ],
+      link: "/services/system-workflows"
     }
   ];
 
@@ -79,10 +83,13 @@ const Services = () => {
                   ))}
                 </ul>
 
-                <button className="mt-6 w-full bg-gray-50 text-gray-600 py-2 px-4 rounded-lg font-light hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm opacity-0 group-hover:opacity-100 delay-200">
+                <Link 
+                  to={service.link}
+                  className="mt-6 w-full bg-gray-50 text-gray-600 py-2 px-4 rounded-lg font-light hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm opacity-0 group-hover:opacity-100 delay-200"
+                >
                   Learn More
                   <ArrowRight size={14} />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
