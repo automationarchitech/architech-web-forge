@@ -60,7 +60,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
@@ -99,48 +99,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-white" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-white" placeholder="john@company.com" />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company Name
-                </label>
-                <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-white" placeholder="Your Company" />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Project Details *
-                </label>
-                <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 bg-white" placeholder="Tell us about your project requirements, goals, and how we can help..." />
-              </div>
-
-              <button type="submit" disabled={isSubmitting} className="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-light hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-                {isSubmitting ? <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Sending...
-                  </> : <>
-                    Send Message
-                    <Send className="w-4 h-4" />
-                  </>}
-              </button>
-            </form>
-          </div>
+          
         </div>
       </div>
     </section>;
