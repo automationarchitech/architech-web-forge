@@ -1,8 +1,11 @@
 
 import { Brain, Database, Workflow, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const Services = () => {
+  const { targetRef: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver();
+
   const services = [
     {
       icon: Brain,
@@ -48,51 +51,70 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
             Our Expertise
           </h2>
-          <div className="group">
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div>
+            <p className={`text-xl text-gray-500 max-w-3xl mx-auto transition-opacity duration-500 ${
+              isTitleVisible ? 'opacity-100' : 'opacity-0 md:opacity-100'
+            } hover:opacity-100`}>
               We specialize in cutting-edge technologies to help you automate, scale, and innovate faster than ever before.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden"
-            >
-              {/* Header */}
-              <div className="p-8 border-b border-gray-50">
-                <service.icon className="w-8 h-8 text-gray-400 mb-4" />
-                <h3 className="text-xl font-medium text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">{service.description}</p>
-              </div>
-
-              {/* Features */}
-              <div className="p-8 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
-                <ul className="space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link 
-                  to={service.link}
-                  className="mt-6 w-full bg-gray-50 text-gray-600 py-2 px-4 rounded-lg font-light hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm opacity-0 group-hover:opacity-100 delay-200"
+          {services.map((service, index) => {
+            const ServiceCard = () => {
+              const { targetRef, isIntersecting } = useIntersectionObserver();
+              
+              return (
+                <div
+                  ref={targetRef}
+                  key={index}
+                  className="group bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden"
                 >
-                  Learn More
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          ))}
+                  {/* Header */}
+                  <div className="p-8 border-b border-gray-50">
+                    <service.icon className="w-8 h-8 text-gray-400 mb-4" />
+                    <h3 className="text-xl font-medium text-gray-900 mb-3">{service.title}</h3>
+                    <p className={`text-gray-600 leading-relaxed transition-opacity duration-500 ${
+                      isIntersecting ? 'opacity-100' : 'opacity-0 md:opacity-100'
+                    } group-hover:opacity-100`}>{service.description}</p>
+                  </div>
+
+                  {/* Features */}
+                  <div className={`p-8 transition-all duration-500 ease-in-out ${
+                    isIntersecting ? 'max-h-96' : 'max-h-0 md:max-h-96'
+                  } group-hover:max-h-96 overflow-hidden`}>
+                    <ul className={`space-y-3 transition-opacity duration-500 ${
+                      isIntersecting ? 'opacity-100' : 'opacity-0 md:opacity-100'
+                    } group-hover:opacity-100`}>
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-600 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link 
+                      to={service.link}
+                      className={`mt-6 w-full bg-gray-50 text-gray-600 py-2 px-4 rounded-lg font-light hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
+                        isIntersecting ? 'opacity-100' : 'opacity-0 md:opacity-100'
+                      } group-hover:opacity-100`}
+                    >
+                      Learn More
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              );
+            };
+
+            return <ServiceCard key={index} />;
+          })}
         </div>
       </div>
     </section>
