@@ -69,12 +69,11 @@ const Services = () => {
               <div className="p-8 border-b border-gray-50">
                 <service.icon className="w-8 h-8 text-gray-400 mb-4" />
                 <h3 className="text-xl font-medium text-gray-900 mb-3">{service.title}</h3>
-                
+                <p className="text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">{service.description}</p>
               </div>
 
               {/* Features */}
               <div className="p-8 max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500 ease-in-out">
-                <p className="text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">{service.description}</p>
                 <ul className="space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
