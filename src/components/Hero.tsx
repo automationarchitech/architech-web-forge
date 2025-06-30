@@ -10,64 +10,64 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-hero-gradient"></div>
-      
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-agency-blue-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-agency-blue-400/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-agency-blue-300/10 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
-      </div>
-
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png" 
+              alt="Automation Architect" 
+              className="w-24 h-24"
+            />
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight">
             Automate Your
-            <span className="bg-gradient-to-r from-agency-blue-400 to-agency-blue-600 bg-clip-text text-transparent"> Future</span>
+            <span className="block font-normal"> Future</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-agency-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            We help organizations build intelligent LLM applications, deploy robust data pipelines, 
-            and create seamless system workflows that scale.
-          </p>
+          <div className="group mb-12">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              We help organizations build intelligent LLM applications, deploy robust data pipelines, 
+              and create seamless system workflows that scale.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <button
               onClick={scrollToContact}
-              className="bg-agency-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-agency-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+              className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2"
             >
               Start Your Project
-              <ArrowRight size={20} />
+              <ArrowRight size={18} />
             </button>
             
             <button
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-agency-gray-900 transition-all duration-300 transform hover:scale-105"
+              className="border border-gray-300 text-gray-600 px-8 py-3 rounded-lg text-lg font-light hover:border-gray-900 hover:text-gray-900 transition-all duration-300"
             >
-              View Our Services
+              View Services
             </button>
           </div>
 
           {/* Service Icons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 animate-slide-in-left">
-              <Code className="w-12 h-12 text-agency-blue-400 mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">LLM Applications</h3>
-              <p className="text-agency-gray-300 text-center">Custom AI solutions tailored to your business needs</p>
+            <div className="group flex flex-col items-center p-8 hover:bg-gray-50 rounded-xl transition-all duration-300">
+              <Code className="w-8 h-8 text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">LLM Applications</h3>
+              <p className="text-gray-500 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">Custom AI solutions tailored to your business needs</p>
             </div>
             
-            <div className="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 animate-slide-in-left" style={{animationDelay: '0.2s'}}>
-              <Database className="w-12 h-12 text-agency-blue-400 mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">Data Pipelines</h3>
-              <p className="text-agency-gray-300 text-center">Robust data processing and scraping solutions</p>
+            <div className="group flex flex-col items-center p-8 hover:bg-gray-50 rounded-xl transition-all duration-300">
+              <Database className="w-8 h-8 text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Data Pipelines</h3>
+              <p className="text-gray-500 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">Robust data processing and scraping solutions</p>
             </div>
             
-            <div className="flex flex-col items-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 animate-slide-in-left" style={{animationDelay: '0.4s'}}>
-              <Workflow className="w-12 h-12 text-agency-blue-400 mb-4" />
-              <h3 className="text-lg font-semibold text-white mb-2">System Workflows</h3>
-              <p className="text-agency-gray-300 text-center">Seamless integration between your applications</p>
+            <div className="group flex flex-col items-center p-8 hover:bg-gray-50 rounded-xl transition-all duration-300">
+              <Workflow className="w-8 h-8 text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">System Workflows</h3>
+              <p className="text-gray-500 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">Seamless integration between your applications</p>
             </div>
           </div>
         </div>
