@@ -69,7 +69,7 @@ const Services = () => {
               <div className="p-8 border-b border-gray-50">
                 <service.icon className="w-8 h-8 text-gray-400 mb-4" />
                 <h3 className="text-xl font-medium text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">{service.description}</p>
+                <p className="text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">{service.description}</p>
               </div>
 
               {/* Features */}
