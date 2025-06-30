@@ -16,8 +16,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight">
-            Automate Your
-            <span className="block font-normal"> Future</span>
+            AI That Works with You
           </h1>
           
           <div className="group mb-12">
