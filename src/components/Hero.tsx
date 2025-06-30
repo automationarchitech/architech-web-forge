@@ -1,24 +1,18 @@
-
 import { ArrowRight, Code, Database, Workflow } from "lucide-react";
-
 const Hero = () => {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-white">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center bg-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
           <div className="flex justify-center mb-8">
-            <img 
-              src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png" 
-              alt="Automation Architect" 
-              className="w-24 h-24"
-            />
+            
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight">
@@ -34,18 +28,14 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button
-              onClick={scrollToContact}
-              className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2"
-            >
+            <button onClick={scrollToContact} className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2">
               Start Your Project
               <ArrowRight size={18} />
             </button>
             
-            <button
-              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-              className="border border-gray-300 text-gray-600 px-8 py-3 rounded-lg text-lg font-light hover:border-gray-900 hover:text-gray-900 transition-all duration-300"
-            >
+            <button onClick={() => document.getElementById("services")?.scrollIntoView({
+            behavior: "smooth"
+          })} className="border border-gray-300 text-gray-600 px-8 py-3 rounded-lg text-lg font-light hover:border-gray-900 hover:text-gray-900 transition-all duration-300">
               View Services
             </button>
           </div>
@@ -72,8 +62,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
