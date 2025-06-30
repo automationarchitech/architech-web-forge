@@ -23,7 +23,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center gap-3">
-            <img src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png" alt="Automation Architect" className="w-8 h-8" />
+            <img src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png" alt="Automation Architect" className="w-14 h-14" />
             <h1 className="text-xl font-bold text-gray-900">Automation Architech</h1>
           </div>
 
