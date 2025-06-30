@@ -1,16 +1,23 @@
-
 import { Users, Award, Target, TrendingUp } from "lucide-react";
-
 const About = () => {
-  const stats = [
-    { icon: Users, number: "50+", label: "Projects Delivered" },
-    { icon: Award, number: "5+", label: "Years Experience" },
-    { icon: Target, number: "100%", label: "Client Satisfaction" },
-    { icon: TrendingUp, number: "300%", label: "Average ROI Increase" }
-  ];
-
-  return (
-    <section id="about" className="py-20 bg-gray-50">
+  const stats = [{
+    icon: Users,
+    number: "50+",
+    label: "Projects Delivered"
+  }, {
+    icon: Award,
+    number: "5+",
+    label: "Years Experience"
+  }, {
+    icon: Target,
+    number: "100%",
+    label: "Client Satisfaction"
+  }, {
+    icon: TrendingUp,
+    number: "300%",
+    label: "Average ROI Increase"
+  }];
+  return <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -20,7 +27,7 @@ const About = () => {
             </h2>
             
             <div className="group mb-8">
-              <p className="text-lg text-gray-500 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-lg text-gray-500 leading-relaxed ">
                 We're not just another development agency. We're automation specialists who understand 
                 the intricacies of modern AI, data processing, and system integration. Our expertise 
                 spans from cutting-edge LLM applications to robust data pipelines that scale.
@@ -62,23 +69,16 @@ const About = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="group text-center p-6 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-300"
-              >
+            {stats.map((stat, index) => <div key={index} className="group text-center p-6 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-300">
                 <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-6 h-6 text-gray-400" />
                 </div>
                 <div className="text-2xl font-light text-gray-900 mb-1">{stat.number}</div>
                 <div className="text-gray-500 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
