@@ -54,7 +54,7 @@ const Contact = () => {
             Ready to Automate?
           </h2>
           <div ref={titleRef} className={`group ${isMobile ? 'lg:group' : ''}`}>
-            <p className={`text-xl text-gray-500 max-w-3xl mx-auto transition-opacity duration-300`}>
+            <p className={`text-xl text-gray-500 max-w-3xl mx-auto duration-300`}>
               Let's discuss how we can transform your business with intelligent automation solutions.
             </p>
           </div>
@@ -66,7 +66,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-light text-gray-900 mb-6">Get in Touch</h3>
               <div ref={contentRef} className={`group mb-8`}>
-                <p className={`text-gray-500 text-lg leading-relaxed transition-opacity duration-300 ${isMobile ? contentInView ? 'opacity-100' : 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
+                <p className={`text-gray-500 text-lg leading-relaxed  duration-300 ${isMobile ? contentInView ? 'opacity-100' : 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
                   Ready to streamline your operations? We'd love to hear about your project 
                   and explore how our automation expertise can drive your success.
                 </p>
