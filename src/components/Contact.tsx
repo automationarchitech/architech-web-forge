@@ -54,7 +54,7 @@ const Contact = () => {
             Ready to Automate?
           </h2>
           <div ref={titleRef} className={`group ${isMobile ? 'lg:group' : ''}`}>
-            <p className={`text-xl text-gray-500 max-w-3xl mx-auto transition-opacity duration-300 ${isMobile ? titleInView ? 'opacity-100' : 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
+            <p className={`text-xl text-gray-500 max-w-3xl mx-auto transition-opacity duration-300`}>
               Let's discuss how we can transform your business with intelligent automation solutions.
             </p>
           </div>
