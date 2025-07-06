@@ -39,10 +39,7 @@ const SystemWorkflows = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-colors">
-            <ArrowLeft size={20} />
-            Back to Home
-          </Link>
+          
           
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
