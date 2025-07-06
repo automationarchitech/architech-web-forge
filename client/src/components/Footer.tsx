@@ -87,11 +87,46 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium text-gray-900 mb-4">Services</h4>
             <ul className="space-y-3">
-              <li className="text-gray-500">LLM Applications</li>
-              <li className="text-gray-500">Data Pipelines</li>
-              <li className="text-gray-500">Web Scrapers</li>
-              <li className="text-gray-500">System Workflows</li>
-              <li className="text-gray-500">API Integration</li>
+              <li>
+                <a
+                  href="/services/llm-applications"
+                  className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                >
+                  LLM Applications
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/data-pipelines"
+                  className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                >
+                  Data Pipelines
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/data-pipelines"
+                  className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                >
+                  Web Scrapers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/system-workflows"
+                  className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                >
+                  System Workflows
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/system-workflows"
+                  className="text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                >
+                  API Integration
+                </a>
+              </li>
             </ul>
           </div>
         </div>
