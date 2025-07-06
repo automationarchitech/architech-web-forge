@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -10,6 +14,7 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -30,18 +35,42 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <button onClick={() => scrollToSection("home")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
-                Home
-              </button>
-              <button onClick={() => scrollToSection("services")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
-                Services
-              </button>
-              <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
-                About
-              </button>
-              <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all duration-200">
-                Contact
-              </button>
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("home")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  Home
+                </button>
+              ) : (
+                <Link to="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  Home
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("services")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  Services
+                </button>
+              ) : (
+                <Link to="/#services" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  Services
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  About
+                </button>
+              ) : (
+                <Link to="/#about" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                  About
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all duration-200">
+                  Contact
+                </button>
+              ) : (
+                <Link to="/#contact" className="bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all duration-200">
+                  Contact
+                </Link>
+              )}
             </div>
           </div>
 
@@ -56,18 +85,42 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
-              <button onClick={() => scrollToSection("home")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
-                Home
-              </button>
-              <button onClick={() => scrollToSection("services")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
-                Services
-              </button>
-              <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
-                About
-              </button>
-              <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-gray-800 transition-colors duration-200">
-                Contact
-              </button>
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("home")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
+                  Home
+                </button>
+              ) : (
+                <Link to="/" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                  Home
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("services")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
+                  Services
+                </button>
+              ) : (
+                <Link to="/#services" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                  Services
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200">
+                  About
+                </button>
+              ) : (
+                <Link to="/#about" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                  About
+                </Link>
+              )}
+              {isHomePage ? (
+                <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                  Contact
+                </button>
+              ) : (
+                <Link to="/#contact" className="bg-gray-900 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-gray-800 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                  Contact
+                </Link>
+              )}
             </div>
           </div>}
       </div>
