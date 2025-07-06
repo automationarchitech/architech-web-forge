@@ -10,17 +10,19 @@ const LLMApplications = () => {
     "Document analysis & summarization", 
     "Intelligent content generation",
     "RAG (Retrieval Augmented Generation) systems",
-    "AI-powered customer support bots"
+    "AI-powered customer support bots",
+    "Sentiment analysis & opinion mining",
+    "Agentic Systems with Human in the Loop"
   ];
 
   const benefits = [
     {
       title: "24/7 Availability",
-      description: "AI systems work around the clock, providing instant responses to your customers."
+      description: "AI systems work around the clock."
     },
     {
       title: "Scalable Solutions", 
-      description: "Handle thousands of conversations simultaneously without additional staffing."
+      description: "Handle thousands of tasks simultaneously without additional staffing."
     },
     {
       title: "Cost Effective",
