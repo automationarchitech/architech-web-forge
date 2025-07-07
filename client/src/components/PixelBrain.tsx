@@ -56,15 +56,22 @@ const PixelBrain = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="grid grid-cols-16 gap-0.5 p-4">
+      <div 
+        className="gap-0.5 p-4"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(16, 1fr)',
+          gridTemplateRows: 'repeat(12, 1fr)'
+        }}
+      >
         {brainPattern.map((row, rowIndex) =>
           row.map((pixel, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
-              className="w-2 h-2 bg-gray-600 transition-opacity duration-300"
+              className="w-2 h-2 transition-opacity duration-300"
               style={{
                 opacity: getPixelOpacity(rowIndex, colIndex, pixel),
-                backgroundColor: pixel ? '#374151' : 'transparent'
+                backgroundColor: pixel ? '#6B7280' : 'transparent'
               }}
             />
           ))
