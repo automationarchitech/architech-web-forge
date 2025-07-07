@@ -16,7 +16,7 @@ const SystemWorkflows = () => {
     {
       title: "Seamless Integration",
       description:
-        "Connect disparate systems and applications for unified business operations.",
+        "Connect disparate systems and applications for unified business operation.",
     },
     {
       title: "Process Automation",

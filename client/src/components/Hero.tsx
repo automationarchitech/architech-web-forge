@@ -1,6 +1,7 @@
 
 import { ArrowRight, Code, Database, Workflow } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import PixelBrain from "./PixelBrain";
 
 const Hero = () => {
   const { ref: heroRef, isIntersecting: heroInView, isMobile } = useIntersectionObserver();
@@ -21,7 +22,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
           <div className="flex justify-center mb-8">
-            
+            <PixelBrain />
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight">
