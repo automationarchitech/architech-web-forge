@@ -10,37 +10,37 @@ const Industries = () => {
       icon: Scale,
       title: "Legal Tech",
       description: "Automating legal document processing, contract analysis, and compliance workflows to streamline legal operations.",
-      color: "from-blue-500 to-blue-600"
+      color: "from-gray-400 to-gray-500"
     },
     {
       icon: Building,
       title: "Admin Automation",
       description: "Streamlining administrative processes, document management, and workflow automation for improved efficiency.",
-      color: "from-gray-500 to-gray-600"
+      color: "from-gray-400 to-gray-500"
     },
     {
       icon: Heart,
       title: "Health + Medicine",
       description: "Building healthcare data pipelines, patient management systems, and medical workflow automation solutions.",
-      color: "from-red-500 to-red-600"
+      color: "from-gray-400 to-gray-500"
     },
     {
       icon: ShoppingCart,
       title: "Ecommerce",
       description: "Creating inventory management systems, order processing automation, and customer data integration platforms.",
-      color: "from-green-500 to-green-600"
+      color: "from-gray-400 to-gray-500"
     },
     {
       icon: GraduationCap,
       title: "Education Technology",
       description: "Developing learning management integrations, student data processing, and educational workflow automation.",
-      color: "from-purple-500 to-purple-600"
+      color: "from-gray-400 to-gray-500"
     },
     {
       icon: Factory,
       title: "Manufacturing",
       description: "Implementing production data pipelines, quality control automation, and supply chain management systems.",
-      color: "from-orange-500 to-orange-600"
+      color: "from-gray-400 to-gray-500"
     }
   ];
 
