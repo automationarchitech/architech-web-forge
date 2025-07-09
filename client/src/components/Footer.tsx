@@ -1,4 +1,3 @@
-
 import { Code, Database, Workflow, ExternalLink } from "lucide-react";
 
 const Footer = () => {
@@ -18,17 +17,20 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png" 
-                alt="Automation Architect" 
+              <img
+                src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png"
+                alt="Automation Architect"
                 className="w-6 h-6"
               />
-              <h3 className="text-xl font-medium text-gray-900">Automation Architect</h3>
+              <h3 className="text-xl font-medium text-gray-900">
+                Automation Architech
+              </h3>
             </div>
             <div className="group mb-6">
               <p className="text-gray-500 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Transforming businesses through intelligent automation, LLM applications, 
-                and seamless system integrations. Let's build the future together.
+                Transforming businesses through intelligent automation, LLM
+                applications, and seamless system integrations. Let's build the
+                future together.
               </p>
             </div>
             <div className="flex space-x-4">
@@ -46,7 +48,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-medium text-gray-900 mb-4">Quick Links</h4>
+            <h4 className="text-lg font-medium text-gray-900 mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               <li>
                 <button
@@ -134,7 +138,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Automation Architect. All rights reserved.
+              © {currentYear} Automation Architech. All rights reserved.
             </p>
             <div className="flex items-center gap-6 mt-4 md:mt-0">
               <a
