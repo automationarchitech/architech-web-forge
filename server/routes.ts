@@ -1,11 +1,8 @@
 import type { Express } from "express";
-import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import { z } from "zod";
-import type { InsertUser, SelectUser } from "@shared/schema";
-import { storageService } from "./storage";
+import { createServer, type Server } from "http";
 import { generateSitemap, getSitemapEntries } from "./sitemap";
 
-export function registerRoutes(app: Express) {
+export function registerRoutes(app: Express): Server {
   // API routes will be added here
   app.get("/api/hello", (req, res) => {
     res.json({ message: "Hello from the API!" });
@@ -20,4 +17,7 @@ export function registerRoutes(app: Express) {
     res.set('Content-Type', 'application/xml');
     res.send(sitemap);
   });
+
+  const httpServer = createServer(app);
+  return httpServer;
 }
