@@ -10,7 +10,7 @@
   
   [plugins.inputs]
     # Base URL for your site
-    baseUrl = "https://your-site-domain.com"
+    baseUrl = "https://automationarchitech.com"
     # Exclude certain paths from the sitemap
     exclude = [
       "/404",
