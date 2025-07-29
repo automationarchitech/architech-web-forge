@@ -4,6 +4,21 @@
   # Directory containing the built static files
   publish = "dist/public"
 
+# Netlify plugins
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+    # Base URL for your site
+    baseUrl = "https://automationarchitech.com"
+    # Exclude certain paths from the sitemap
+    exclude = [
+      "/404",
+      "/admin/**"
+    ]
+    # Include additional paths
+    trailingSlash = true
+
 # Redirect all routes to index.html for SPA routing
 [[redirects]]
   from = "/*"
