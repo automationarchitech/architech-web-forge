@@ -4,11 +4,12 @@
   # Directory containing the built static files
   publish = "dist/public"
 
-# Redirect all routes to index.html for SPA routing
+# Redirect all routes to index.html for SPA routing (except sitemap.xml)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Environment variables (if needed)
 [build.environment]
