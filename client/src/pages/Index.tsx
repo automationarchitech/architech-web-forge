@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Industries from "@/components/Industries";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -31,6 +32,7 @@ const Index = () => {
       <div style={{ paddingTop: `${navHeight}px` }}>
         <Hero />
         <Services />
+        <Industries />
         <About />
         <Contact />
       </div>

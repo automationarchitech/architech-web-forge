@@ -1,15 +1,23 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { z } from "zod";
+import type { InsertUser, SelectUser } from "@shared/schema";
+import { storageService } from "./storage";
+import { generateSitemap, getSitemapEntries } from "./sitemap";
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
+export function registerRoutes(app: Express) {
+  // API routes will be added here
+  app.get("/api/hello", (req, res) => {
+    res.json({ message: "Hello from the API!" });
+  });
 
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+  // Sitemap route
+  app.get("/sitemap.xml", (req, res) => {
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const entries = getSitemapEntries();
+    const sitemap = generateSitemap(baseUrl, entries);
 
-  const httpServer = createServer(app);
-
-  return httpServer;
+    res.set('Content-Type', 'application/xml');
+    res.send(sitemap);
+  });
 }
