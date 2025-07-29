@@ -1,23 +1,15 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { generateSitemap, getSitemapEntries } from "./sitemap";
+import { storage } from "./storage";
 
-export function registerRoutes(app: Express): Server {
-  // Sitemap route - must come before static middleware
-  app.get("/sitemap.xml", (req, res) => {
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const entries = getSitemapEntries();
-    const sitemap = generateSitemap(baseUrl, entries);
+export async function registerRoutes(app: Express): Promise<Server> {
+  // put application routes here
+  // prefix all routes with /api
 
-    res.set('Content-Type', 'application/xml');
-    res.send(sitemap);
-  });
-
-  // API routes
-  app.get("/api/hello", (req, res) => {
-    res.json({ message: "Hello from the API!" });
-  });
+  // use storage to perform CRUD operations on the storage interface
+  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
 
   const httpServer = createServer(app);
+
   return httpServer;
 }
