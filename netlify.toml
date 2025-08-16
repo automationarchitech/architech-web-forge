@@ -1,6 +1,6 @@
 [build]
-  # Build command for static site deployment (includes sitemap update)
-  command = "node scripts/update-sitemap.js && npm run build"
+  # Build command for static site deployment
+  command = "npm run build"
   # Directory containing the built static files
   publish = "dist/public"
 
@@ -11,15 +11,6 @@
   [plugins.inputs]
     # Base URL for your site
     baseUrl = "https://automationarchitech.com"
-    # Dynamically generated routes
-    includes = [
-      "/",
-      "/services/llm-applications",
-      "/services/data-pipelines",
-      "/services/system-workflows",
-      "/ai-consulting-firm",
-      "/vibe-coder-rescue"
-    ]
     # Exclude certain paths from the sitemap
     exclude = [
       "/404",
