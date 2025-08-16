@@ -106,24 +106,11 @@ const ConcurrentFunctionCalling = () => {
       <Navigation />
       <div style={{ paddingTop: `${navHeight}px` }}>
         {/* Hero Section */}
-        <section className="relative py-24 flex items-center overflow-hidden" style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-        }}>
-          {/* Animated Background */}
-          <div
-            className="absolute top-0 right-0 w-full h-full opacity-10"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
-              animation: "rotate 20s linear infinite",
-              transform: "translate(50%, -50%)",
-            }}
-          />
-
-          <div className="container mx-auto px-5 relative z-10">
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-5">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Hero Text */}
-              <div className="text-white">
+              <div className="text-gray-800">
                 <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Stop Waiting for AI to Catch Up
                 </h1>
@@ -135,7 +122,7 @@ const ConcurrentFunctionCalling = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="mailto:hello@automationarchitect.com"
-                    className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1 inline-block text-center"
+                    className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1 inline-block text-center"
                   >
                     Learn More
                   </a>
@@ -144,7 +131,19 @@ const ConcurrentFunctionCalling = () => {
 
               {/* Conversation Demo */}
               <div className="flex justify-center">
-                <div className="bg-white bg-opacity-15 backdrop-blur-xl rounded-3xl p-8 border border-white border-opacity-20 w-full max-w-md min-h-96">
+                <div className="relative rounded-3xl p-8 w-full max-w-md min-h-96 overflow-hidden" style={{
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                }}>
+                  {/* Animated Background */}
+                  <div
+                    className="absolute top-0 right-0 w-full h-full opacity-10"
+                    style={{
+                      background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
+                      animation: "rotate 20s linear infinite",
+                      transform: "translate(50%, -50%)",
+                    }}
+                  />
+                  <div className="relative z-10">
                   {/* User Message */}
                   <div className="bg-blue-600 text-white p-4 rounded-2xl mb-4 min-h-28 flex items-center">
                     <div className="text-base leading-relaxed">
@@ -244,6 +243,7 @@ const ConcurrentFunctionCalling = () => {
                       </Button>
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             </div>
