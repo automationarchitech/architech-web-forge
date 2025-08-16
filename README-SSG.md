@@ -14,7 +14,18 @@ This runs your app in development mode at http://localhost:5000
 ```bash
 node build-static.js
 ```
-This creates optimized static files in the `dist/public` folder ready for deployment.
+This creates optimized static files in the `dist/public` folder ready for deployment, including:
+- HTML files for each route
+- Optimized CSS and JavaScript bundles  
+- **sitemap.xml** for search engines
+- **robots.txt** for web crawlers
+- **_redirects** for Netlify routing
+
+### Generate Sitemap Only
+```bash
+node generate-sitemap-standalone.js
+```
+Generates just the sitemap.xml and robots.txt files without rebuilding the entire site.
 
 ### Preview Static Build Locally
 ```bash
@@ -98,6 +109,8 @@ dist/public/
 - 🔍 Better search engine indexing
 - 📊 Enhanced meta tags for social sharing
 - 🚀 Faster Core Web Vitals scores
+- 🗺️ **XML Sitemap** automatically generated for all routes
+- 🤖 **robots.txt** optimized for search engines
 
 ## 🔧 Advanced Configuration
 
@@ -121,8 +134,33 @@ Make sure you're using hash-based links (`/#/route`) instead of regular links (`
 ### Static Preview Not Working
 Ensure you've run `node build-static.js` first to generate the static files.
 
+## 🗺️ Sitemap & SEO
+
+Your static site automatically generates comprehensive SEO files:
+
+### XML Sitemap (`sitemap.xml`)
+Contains all your static pages with:
+- **Priority levels**: Home (1.0), Services (0.9), Other pages (0.7-0.8)
+- **Change frequency**: Weekly for home, monthly for service pages
+- **Last modified dates**: Automatically updated on each build
+- **7 total pages** including all routes
+
+### Robots.txt
+Optimized for search engines with:
+- Permission for all crawlers (`User-agent: *`)
+- Sitemap location reference
+- Common bot path restrictions
+
+### Search Engine Submission
+After deployment, submit your sitemap to:
+1. **Google Search Console**: https://search.google.com/search-console
+2. **Bing Webmaster Tools**: https://www.bing.com/webmasters
+3. **Yandex Webmaster**: https://webmaster.yandex.com (if targeting Russian market)
+
+Your sitemap will be available at: `https://yourdomain.com/sitemap.xml`
+
 ## 🎉 You're Ready!
 
-Your application is now optimized for static deployment. Choose your favorite hosting service and deploy your `dist/public` folder to share your site with the world!
+Your application is now optimized for static deployment with comprehensive SEO support. Choose your favorite hosting service and deploy your `dist/public` folder to share your site with the world!
 
 For questions or issues, check the project documentation in `replit.md`.

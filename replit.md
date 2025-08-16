@@ -134,8 +134,17 @@ The project has been converted to support Static Site Generation for deployment 
 ### Generated Static Files:
 - `index.html` - Main application entry point
 - Individual HTML files for each route (for SEO)
+- `sitemap.xml` - XML sitemap for search engines (7 pages)
+- `robots.txt` - Web crawler instructions with sitemap reference
 - `_redirects` file for Netlify routing support
 - All assets and optimized bundles
+
+### SEO Features:
+- **XML Sitemap**: Automatically generated with proper priority levels and change frequencies
+- **Meta Tags**: Enhanced Open Graph and Twitter Card tags for social sharing
+- **Robots.txt**: Optimized for search engine crawling
+- **Clean URLs**: Hash routing ensures compatibility with static hosting
+- **Page-specific HTML**: Individual HTML files for better indexing
 
 ## User Preferences
 
