@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant AI Responses - Make Your Voice Assistant Lightning Fast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .conversation-demo {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 450px;
+            min-height: 400px;
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2d3748;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            position: relative;
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: 1rem;
+            margin-right: 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ai-message {
+            background: white;
+            margin-left: 0;
+            margin-right: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .speech-text {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        
+        .word {
+            animation: wordAppear 0.1s ease-in-out forwards;
+        }
+        
+        .function-call-indicator {
+            background: #f093fb;
+            color: white;
+            margin: 0.5rem 1rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: functionCall 0.5s ease-out;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .function-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #f093fb;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        .typing-indicator {
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            margin-left: 0;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: typing 1.4s ease-in-out infinite;
+        }
+        
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        .demo-controls {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .replay-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .replay-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        @keyframes wordAppear {
+            to {
+                opacity: 1;
+            }
+            from {
+                opacity: 0;
+            }
+        }
+        
+        @keyframes functionCall {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+        
+        @keyframes wordAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+        }
+        
+        @keyframes functionCall {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-right: 0;
+        }
+        
+        .cta-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .pain-points {
+            padding: 6rem 0;
+            background: #f7fafc;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pain-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+        
+        .pain-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pain-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .solution-showcase {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .comparison-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .before-card {
+            background: #fed7d7;
+            border: 2px solid #fc8181;
+        }
+        
+        .after-card {
+            background: #c6f6d5;
+            border: 2px solid #68d391;
+        }
+        
+        .timing-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+        
+        .before-card .timing-display {
+            color: #e53e3e;
+        }
+        
+        .after-card .timing-display {
+            color: #38a169;
+        }
+        
+        .benefits {
+            padding: 6rem 0;
+            background: #2d3748;
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .integration-preview {
+            padding: 6rem 0;
+            background: #f7fafc;
+        }
+        
+        .code-preview {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            overflow-x: auto;
+        }
+        
+        .code-comment {
+            color: #68d391;
+        }
+        
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .social-proof {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .proof-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-proof {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        const speechText = "I need to write an email to my boss Sarah about Project Blue Agent and explain what's going on with the database migration delays and our plan to get back on track.";
+        const words = speechText.split(' ');
+        let currentWordIndex = 0;
+        let speechInterval;
+        let isPlaying = false;
+
+        function resetDemo() {
+            document.getElementById('speechText').innerHTML = '';
+            
+            // Reset function call 1
+            const functionCall1 = document.getElementById('functionCall');
+            functionCall1.style.display = 'none';
+            functionCall1.style.background = '#f093fb';
+            functionCall1.innerHTML = '<div class="function-icon">⚡</div><span>get_contact_info("Sarah") executing...</span>';
+            
+            // Reset function call 2
+            const functionCall2 = document.getElementById('functionCall2');
+            functionCall2.style.display = 'none';
+            functionCall2.style.background = '#f093fb';
+            functionCall2.innerHTML = '<div class="function-icon">⚡</div><span>fetch_project("Blue Agent") executing...</span>';
+            
+            document.getElementById('typingIndicator').style.display = 'none';
+            document.getElementById('aiResponse').style.display = 'none';
+            document.getElementById('demoControls').style.display = 'none';  // Hide replay button
+            currentWordIndex = 0;
+            isPlaying = false;
+            if (speechInterval) clearInterval(speechInterval);
+        }
+
+        function startDemo() {
+            if (isPlaying) return;
+            isPlaying = true;
+            resetDemo();
+            
+            const speechTextElement = document.getElementById('speechText');
+            
+            speechInterval = setInterval(() => {
+                if (currentWordIndex < words.length) {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.className = 'word';
+                    wordSpan.textContent = words[currentWordIndex] + ' ';
+                    wordSpan.style.animationDelay = '0ms';
+                    speechTextElement.appendChild(wordSpan);
+                    
+                    // Trigger contact function after "my boss Sarah"
+                    if (currentWordIndex === 9) { // After "Sarah"
+                        setTimeout(() => {
+                            document.getElementById('functionCall').style.display = 'flex';
+                        }, 200);
+                        
+                        // Complete contact function before user finishes
+                        setTimeout(() => {
+                            document.getElementById('functionCall').innerHTML = '<div class="function-icon">✅</div><span>get_contact_info() completed</span>';
+                            document.getElementById('functionCall').style.background = '#68d391';
+                        }, 1800);
+                    }
+                    
+                    // Trigger project function after "Project Blue Agent"
+                    if (currentWordIndex === 13) { // After "Agent"
+                        setTimeout(() => {
+                            document.getElementById('functionCall2').style.display = 'flex';
+                        }, 200);
+                        
+                        // Complete project function before user finishes
+                        setTimeout(() => {
+                            document.getElementById('functionCall2').innerHTML = '<div class="function-icon">✅</div><span>fetch_project("Blue Agent") completed</span>';
+                            document.getElementById('functionCall2').style.background = '#68d391';
+                        }, 2200);
+                    }
+                    
+                    currentWordIndex++;
+                } else {
+                    clearInterval(speechInterval);
+                    // Show typing indicator after speech completes
+                    setTimeout(() => {
+                        document.getElementById('functionCall').style.display = 'none';
+                        document.getElementById('functionCall2').style.display = 'none';
+                        document.getElementById('typingIndicator').style.display = 'flex';
+                    }, 800);
+                    
+                    // Show final response
+                    setTimeout(() => {
+                        document.getElementById('typingIndicator').style.display = 'none';
+                        document.getElementById('aiResponse').style.display = 'block';
+                        document.getElementById('demoControls').style.display = 'block';  // Show replay button
+                        isPlaying = false;
+                    }, 2000);
+                }
+            }, 400); // Adjust timing as needed
+        }
+
+        // Auto-start demo when page loads
+        window.addEventListener('load', () => {
+            setTimeout(startDemo, 1000);
+        });
+    </script>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Stop Waiting for AI to Catch Up</h1>
+                    <p>Your users expect instant responses. Our breakthrough technology makes AI assistants react while people are still speaking - not after.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#demo" class="cta-button">See It in Action</a>
+                        <a href="#learn" class="cta-button cta-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="conversation-demo">
+                        <div class="message user-message">
+                            <div class="speech-text" id="speechText">
+                                <!-- Words will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="function-call-indicator" id="functionCall" style="display: none;">
+                            <div class="function-icon">⚡</div>
+                            <span>get_contact_info("Sarah") executing...</span>
+                        </div>
+                        <div class="function-call-indicator" id="functionCall2" style="display: none;">
+                            <div class="function-icon">⚡</div>
+                            <span>fetch_project("Blue Agent") executing...</span>
+                        </div>
+                        <div class="message typing-indicator" id="typingIndicator" style="display: none;">
+                            <span>Processing email draft</span>
+                            <div class="typing-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="message ai-message" id="aiResponse" style="display: none;">
+                            <strong>✅ Email Draft Ready</strong><br>
+                            <small>To: sarah.johnson@company.com</small><br>
+                            <small>Subject: Project Blue Agent - Database Migration Update</small><br>
+                            <em>Draft generated with Sarah's contact info and Blue Agent project details</em>
+                        </div>
+                        <div class="demo-controls" id="demoControls" style="display: none;">
+                            <button class="replay-btn" onclick="startDemo()">🔄 Replay Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pain-points" id="learn">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Frustration is Real</h2>
+                <p>Every second of delay breaks the natural flow of conversation and frustrates your users</p>
+            </div>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <span class="pain-icon">😤</span>
+                    <h3>User Impatience</h3>
+                    <p>Users get frustrated waiting 2-3 seconds for responses to simple requests like "get contact info" or "check calendar"</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-icon">💔</span>
+                    <h3>Broken Flow</h3>
+                    <p>Natural conversations become stilted when AI can't keep up with human speech patterns and expectations</p>
+                </div>
+                
+                <div class="pain-card">
+                    <span class="pain-icon">📉</span>
+                    <h3>Poor Adoption</h3>
+                    <p>Slow AI responses lead to decreased usage and users preferring manual alternatives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="solution-showcase" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Game-Changing Difference</h2>
+                <p>See how our predictive technology transforms user experience</p>
+            </div>
+            
+            <div class="before-after">
+                <div class="comparison-card before-card">
+                    <h3>❌ Traditional AI</h3>
+                    <div class="timing-display">3.2s</div>
+                    <p><strong>Wait for complete speech</strong><br>
+                    → Process request<br>
+                    → Execute function<br>
+                    → Generate response</p>
+                </div>
+                
+                <div class="comparison-card after-card">
+                    <h3>✅ Our Solution</h3>
+                    <div class="timing-display">1.3s</div>
+                    <p><strong>Predict intent early</strong><br>
+                    → Execute while speaking<br>
+                    → Response ready instantly</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <div style="background: #667eea; color: white; padding: 2rem; border-radius: 20px; display: inline-block;">
+                    <h3 style="margin-bottom: 1rem;">Real User Example</h3>
+                    <p style="font-size: 1.1rem;">User says: "I need to get contact information for my boss Sarah..."</p>
+                    <p style="margin-top: 1rem; font-weight: 600;">✅ Function executes after "contact information" - before they finish speaking!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Why This Matters for Your Business</h2>
+                <p style="color: rgba(255,255,255,0.8);">Transform your AI from frustrating to delightful</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>🚀 60% Faster Responses</h3>
+                    <p>Reduce total response time from 3+ seconds to under 1.5 seconds for common requests</p>
+                </div>
+                
+                <div class="benefit-item">
+                    
