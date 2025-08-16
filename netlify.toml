@@ -1,23 +1,11 @@
 [build]
-  # Build command for static site deployment
-  command = "npm run build"
+  # Build command for static site deployment with sitemap generation
+  command = "node build-static.js"
   # Directory containing the built static files
   publish = "dist/public"
 
-# Netlify plugins
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  
-  [plugins.inputs]
-    # Base URL for your site
-    baseUrl = "https://automationarchitech.com"
-    # Exclude certain paths from the sitemap
-    exclude = [
-      "/404",
-      "/admin/**"
-    ]
-    # Include additional paths
-    trailingSlash = true
+# Note: Netlify sitemap plugin removed since we generate our own sitemap.xml
+# Our custom sitemap is more comprehensive and works better with hash routing
 
 # Redirect all routes to index.html for SPA routing
 [[redirects]]
