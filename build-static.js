@@ -67,10 +67,27 @@ const redirectsContent = `
 fs.writeFileSync(path.join(distPath, '_redirects'), redirectsContent);
 console.log('✅ Created _redirects file for Netlify');
 
+// Step 4: Generate sitemap and SEO files
+console.log('🗺️  Generating sitemap and SEO files...');
+try {
+  const { generateSitemap, generateRobotsTxt } = await import('./generate-sitemap.js');
+  generateSitemap();
+  generateRobotsTxt();
+} catch (error) {
+  console.warn('⚠️  Could not generate sitemap:', error.message);
+}
+
 console.log('🎉 Static site generation complete!');
 console.log(`📁 Files generated in: ${distPath}`);
 console.log('');
-console.log('You can now deploy the dist/public folder to any static hosting service:');
+console.log('📋 Generated files include:');
+console.log('• HTML files for each route');
+console.log('• Optimized CSS and JavaScript bundles');
+console.log('• sitemap.xml for search engines');
+console.log('• robots.txt for web crawlers');
+console.log('• _redirects for Netlify routing');
+console.log('');
+console.log('🚀 Deploy options:');
 console.log('• Netlify: Drag and drop the dist/public folder');
 console.log('• Vercel: Run "vercel --prod" in the dist/public directory'); 
 console.log('• GitHub Pages: Push the contents to a gh-pages branch');
