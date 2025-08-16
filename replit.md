@@ -106,8 +106,36 @@ This is a modern full-stack web application built with React frontend and Expres
 
 ```
 Changelog:
+- August 16, 2025. Converted to Static Site Generator (SSG) with hash-based routing
 - July 03, 2025. Initial setup
 ```
+
+## Static Site Generation (SSG) Configuration
+
+The project has been converted to support Static Site Generation for deployment to any static hosting service.
+
+### Key Changes Made:
+- **Router**: Switched from BrowserRouter to HashRouter for client-side routing compatibility
+- **Build Process**: Created custom static build script (`build-static.js`)
+- **Navigation**: Updated all navigation links to use hash-based routing (`/#/route`)
+- **HTML Generation**: Automated creation of individual HTML files for each route
+- **SEO Optimization**: Enhanced meta tags, Open Graph, and Twitter Card tags
+
+### Build Commands:
+- `node build-static.js` - Generates static files for deployment
+- `node preview-static.js` - Local preview server for testing static build
+
+### Deployment Options:
+- **Netlify**: Drag and drop `dist/public` folder
+- **Vercel**: Deploy `dist/public` directory
+- **GitHub Pages**: Push contents to gh-pages branch
+- **Any CDN or static hosting service**
+
+### Generated Static Files:
+- `index.html` - Main application entry point
+- Individual HTML files for each route (for SEO)
+- `_redirects` file for Netlify routing support
+- All assets and optimized bundles
 
 ## User Preferences
 
