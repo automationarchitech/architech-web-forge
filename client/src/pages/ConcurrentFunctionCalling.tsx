@@ -48,7 +48,7 @@ const ConcurrentFunctionCalling = () => {
     resetDemo();
 
     let wordIndex = 0;
-    const speechInterval = setInterval(() => {
+    const showNextWord = () => {
       if (wordIndex < words.length) {
         setCurrentWordIndex(wordIndex);
 
@@ -65,8 +65,10 @@ const ConcurrentFunctionCalling = () => {
         }
 
         wordIndex++;
+        // Add jitter delay between 300-600ms
+        const jitterDelay = 300 + Math.random() * 300;
+        setTimeout(showNextWord, jitterDelay);
       } else {
-        clearInterval(speechInterval);
         // Show typing and response after speech completes
         setTimeout(() => setShowTyping(true), 500);
         setTimeout(() => {
@@ -75,7 +77,9 @@ const ConcurrentFunctionCalling = () => {
           setIsPlaying(false);
         }, 2000);
       }
-    }, 150);
+    };
+    
+    showNextWord();
   };
 
   useEffect(() => {
@@ -129,7 +133,7 @@ const ConcurrentFunctionCalling = () => {
                   <div className="bg-blue-600 text-white p-4 rounded-2xl mb-4 min-h-28 flex items-center">
                     <div className="text-base leading-relaxed">
                       {words.slice(0, currentWordIndex + 1).map((word, index) => (
-                        <span key={index} className="inline-block opacity-100 animate-in slide-in-from-left-2 duration-100 mr-1">
+                        <span key={index} className="inline-block mr-1">
                           {word}
                         </span>
                       ))}
