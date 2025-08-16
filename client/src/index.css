@@ -127,6 +127,23 @@ html {
   transition: all 0.3s ease;
 }
 
+/* Concurrent Function Calling Page Animations */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% { 
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
 .hover-reveal.show {
   opacity: 1;
   transform: translateY(0);
