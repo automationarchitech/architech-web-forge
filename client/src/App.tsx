@@ -10,6 +10,7 @@ import DataPipelines from "./pages/services/DataPipelines";
 import SystemWorkflows from "./pages/services/SystemWorkflows";
 import AIConsultingFirm from "./pages/AIConsultingFirm";
 import VibeCoderRescue from "./pages/VibeCoderRescue";
+import ConcurrentFunctionCalling from "./pages/ConcurrentFunctionCalling";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/services/system-workflows" element={<SystemWorkflows />} />
           <Route path="/ai-consulting-firm" element={<AIConsultingFirm />} />
           <Route path="/vibe-coder-rescue" element={<VibeCoderRescue />} />
+          <Route path="/concurrent-function-calling" element={<ConcurrentFunctionCalling />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
