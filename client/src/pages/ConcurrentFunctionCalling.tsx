@@ -412,55 +412,103 @@ const ConcurrentFunctionCalling = () => {
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <div className="bg-gray-900 text-gray-100 p-8 rounded-2xl overflow-x-auto">
-                <div className="text-green-400 text-sm mb-4">
-                  // Enable concurrent function calling in your AI assistant
+              <div className="relative bg-gray-900 text-gray-100 rounded-2xl overflow-hidden">
+                {/* Copy Button */}
+                <div className="absolute top-4 right-4 z-10">
+                  <button
+                    onClick={() => {
+                      const codeText = `// Enable concurrent function calling in your AI assistant
+import { ConcurrentFunctionCaller } from '@automation-architect/concurrent-functions';
+
+// Initialize with your function definitions
+const caller = new ConcurrentFunctionCaller({
+  functions: [getContactInfo, fetchProject, sendEmail],
+  predictiveThreshold: 0.8 // Execute when 80% confident
+});
+
+// Functions execute as user speaks
+caller.onSpeech("I need contact info for Sarah");
+// → getContactInfo() starts executing immediately`;
+                      navigator.clipboard.writeText(codeText);
+                    }}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <Code className="w-4 h-4" />
+                    Copy Code
+                  </button>
                 </div>
-                <div className="text-blue-400">import</div>{" "}
-                <span className="text-yellow-300">{"{"}</span>{" "}
-                ConcurrentFunctionCaller{" "}
-                <span className="text-yellow-300">{"}"}</span>{" "}
-                <div className="text-blue-400">from</div>{" "}
-                <span className="text-green-300">
-                  '@automation-architect/concurrent-functions'
-                </span>
-                <span className="text-gray-400">;</span>
-                <br />
-                <br />
-                <div className="text-green-400 text-sm mb-2">
-                  // Initialize with your function definitions
+                
+                {/* Code Display */}
+                <div className="p-8 overflow-x-auto select-all">
+                  <pre className="text-sm leading-relaxed">
+                    <code className="block whitespace-pre">
+{`// Enable concurrent function calling in your AI assistant
+import { ConcurrentFunctionCaller } from '@automation-architect/concurrent-functions';
+
+// Initialize with your function definitions
+const caller = new ConcurrentFunctionCaller({
+  functions: [getContactInfo, fetchProject, sendEmail],
+  predictiveThreshold: 0.8 // Execute when 80% confident
+});
+
+// Functions execute as user speaks
+caller.onSpeech("I need contact info for Sarah");
+// → getContactInfo() starts executing immediately`}
+                    </code>
+                  </pre>
                 </div>
-                <div className="text-blue-400">const</div> caller ={" "}
-                <div className="text-blue-400">new</div>{" "}
-                ConcurrentFunctionCaller
-                <span className="text-yellow-300">({"{"}</span>
-                <br />
-                &nbsp;&nbsp;functions:{" "}
-                <span className="text-yellow-300">[</span>getContactInfo,
-                fetchProject, sendEmail
-                <span className="text-yellow-300">]</span>,<br />
-                &nbsp;&nbsp;predictiveThreshold:{" "}
-                <span className="text-orange-300">0.8</span>{" "}
-                <div className="text-green-400">
-                  // Execute when 80% confident
-                </div>
-                <br />
-                <span className="text-yellow-300">{"}"});</span>
-                <br />
-                <br />
-                <div className="text-green-400 text-sm mb-2">
-                  // Functions execute as user speaks
-                </div>
-                caller.<span className="text-yellow-300">onSpeech</span>
-                <span className="text-yellow-300">(</span>
-                <span className="text-green-300">
-                  "I need contact info for Sarah"
-                </span>
-                <span className="text-yellow-300">)</span>
-                <span className="text-gray-400">;</span>
-                <br />
-                <div className="text-green-400 text-sm">
-                  // → getContactInfo() starts executing immediately
+
+                {/* Styled Code Display (for visual appeal) */}
+                <div className="absolute inset-0 p-8 overflow-x-auto pointer-events-none">
+                  <div className="text-green-400 text-sm mb-4">
+                    // Enable concurrent function calling in your AI assistant
+                  </div>
+                  <div className="text-blue-400">import</div>{" "}
+                  <span className="text-yellow-300">{"{"}</span>{" "}
+                  ConcurrentFunctionCaller{" "}
+                  <span className="text-yellow-300">{"}"}</span>{" "}
+                  <div className="text-blue-400">from</div>{" "}
+                  <span className="text-green-300">
+                    '@automation-architect/concurrent-functions'
+                  </span>
+                  <span className="text-gray-400">;</span>
+                  <br />
+                  <br />
+                  <div className="text-green-400 text-sm mb-2">
+                    // Initialize with your function definitions
+                  </div>
+                  <div className="text-blue-400">const</div> caller ={" "}
+                  <div className="text-blue-400">new</div>{" "}
+                  ConcurrentFunctionCaller
+                  <span className="text-yellow-300">({"{"}</span>
+                  <br />
+                  &nbsp;&nbsp;functions:{" "}
+                  <span className="text-yellow-300">[</span>getContactInfo,
+                  fetchProject, sendEmail
+                  <span className="text-yellow-300">]</span>,<br />
+                  &nbsp;&nbsp;predictiveThreshold:{" "}
+                  <span className="text-orange-300">0.8</span>{" "}
+                  <div className="text-green-400">
+                    // Execute when 80% confident
+                  </div>
+                  <br />
+                  <span className="text-yellow-300">{"}"});</span>
+                  <br />
+                  <br />
+                  <div className="text-green-400 text-sm mb-2">
+                    // Functions execute as user speaks
+                  </div>
+                  caller.<span className="text-yellow-300">onSpeech</span>
+                  <span className="text-yellow-300">(</span>
+                  <span className="text-green-300">
+                    "I need contact info for Sarah"
+                  </span>
+                  <span className="text-yellow-300">)</span>
+                  <span className="text-gray-400">;</span>
+                  <br />
+                  <div className="text-green-400 text-sm">
+                    // → getContactInfo() starts executing immediately
+                  </div>
                 </div>
               </div>
             </div>
