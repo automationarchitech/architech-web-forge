@@ -49,7 +49,7 @@ const Navigation = () => {
                   Services
                 </button>
               ) : (
-                <Link to="/#services" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                <Link to="/#/services" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
                   Services
                 </Link>
               )}
@@ -58,7 +58,7 @@ const Navigation = () => {
                   About
                 </button>
               ) : (
-                <Link to="/#about" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                <Link to="/#/about" className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors duration-200">
                   About
                 </Link>
               )}
@@ -67,7 +67,7 @@ const Navigation = () => {
                   Contact
                 </button>
               ) : (
-                <Link to="/#contact" className="bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all duration-200">
+                <Link to="/#/contact" className="bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200">
                   Contact
                 </Link>
               )}
@@ -99,7 +99,7 @@ const Navigation = () => {
                   Services
                 </button>
               ) : (
-                <Link to="/#services" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/#/services" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   Services
                 </Link>
               )}
@@ -108,7 +108,7 @@ const Navigation = () => {
                   About
                 </button>
               ) : (
-                <Link to="/#about" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/#/about" className="text-gray-600 hover:text-gray-900 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   About
                 </Link>
               )}
@@ -117,7 +117,7 @@ const Navigation = () => {
                   Contact
                 </button>
               ) : (
-                <Link to="/#contact" className="bg-gray-900 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-gray-800 transition-colors duration-200" onClick={() => setIsOpen(false)}>
+                <Link to="/#/contact" className="bg-gray-900 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-gray-800 transition-colors duration-200" onClick={() => setIsOpen(false)}>
                   Contact
                 </Link>
               )}
