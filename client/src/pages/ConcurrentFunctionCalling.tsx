@@ -52,14 +52,14 @@ const ConcurrentFunctionCalling = () => {
       if (wordIndex < words.length) {
         setCurrentWordIndex(wordIndex);
 
-        // Trigger contact function after "my boss Sarah"
-        if (wordIndex === 9) { // After "Sarah"
+        // Trigger contact function after "boss Sarah"
+        if (wordIndex === 10) { // After "Sarah"
           setTimeout(() => setShowFunction1(true), 200);
           setTimeout(() => setFunction1Complete(true), 1800);
         }
 
         // Trigger project function after "Project Blue Agent"
-        if (wordIndex === 13) { // After "Agent"
+        if (wordIndex === 14) { // After "Agent"
           setTimeout(() => setShowFunction2(true), 200);
           setTimeout(() => setFunction2Complete(true), 2200);
         }
@@ -113,19 +113,12 @@ const ConcurrentFunctionCalling = () => {
                   Your users expect instant responses. Our breakthrough technology makes AI assistants react while people are still speaking - not after.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    size="lg" 
-                    className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1"
-                  >
-                    See It in Action
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-10 py-4 text-lg font-bold rounded-full transition-all duration-300"
+                  <a 
+                    href="mailto:hello@automationarchitect.com"
+                    className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1 inline-block text-center"
                   >
                     Learn More
-                  </Button>
+                  </a>
                 </div>
               </div>
 
@@ -136,8 +129,8 @@ const ConcurrentFunctionCalling = () => {
                   <div className="bg-blue-600 text-white p-4 rounded-2xl mb-4 min-h-28 flex items-center">
                     <div className="text-base leading-relaxed">
                       {words.slice(0, currentWordIndex + 1).map((word, index) => (
-                        <span key={index} className="inline-block opacity-100 animate-in slide-in-from-left-2 duration-100">
-                          {word}{' '}
+                        <span key={index} className="inline-block opacity-100 animate-in slide-in-from-left-2 duration-100 mr-1">
+                          {word}
                         </span>
                       ))}
                     </div>
@@ -394,19 +387,12 @@ const ConcurrentFunctionCalling = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+              <a 
+                href="mailto:hello@automationarchitect.com"
+                className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-1 inline-block text-center"
               >
-                Start Free Trial
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-10 py-4 text-lg font-bold rounded-full transition-all duration-300"
-              >
-                Schedule Demo
-              </Button>
+                Get Started
+              </a>
             </div>
           </div>
         </section>
