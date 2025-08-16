@@ -131,118 +131,124 @@ const ConcurrentFunctionCalling = () => {
 
               {/* Conversation Demo */}
               <div className="flex justify-center">
-                <div className="relative rounded-3xl p-8 w-full max-w-md min-h-96 overflow-hidden" style={{
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-                }}>
+                <div
+                  className="relative rounded-3xl p-8 w-full max-w-md min-h-96 overflow-hidden"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  }}
+                >
                   {/* Animated Background */}
                   <div
                     className="absolute top-0 right-0 w-full h-full opacity-10"
                     style={{
-                      background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
+                      background:
+                        "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
                       animation: "rotate 20s linear infinite",
                       transform: "translate(50%, -50%)",
                     }}
                   />
                   <div className="relative z-10">
-                  {/* User Message */}
-                  <div className="bg-blue-600 text-white p-4 rounded-2xl mb-4 min-h-28 flex items-center">
-                    <div className="text-base leading-relaxed">
-                      {words
-                        .slice(0, currentWordIndex + 1)
-                        .map((word, index) => (
-                          <span key={index} className="inline-block mr-1">
-                            {word}
-                          </span>
-                        ))}
+                    {/* User Message */}
+                    <div className="bg-blue-600 text-white p-4 rounded-2xl mb-4 min-h-28 flex items-center">
+                      <div className="text-base leading-relaxed">
+                        {words
+                          .slice(0, currentWordIndex + 1)
+                          .map((word, index) => (
+                            <span key={index} className="inline-block mr-1">
+                              {word}
+                            </span>
+                          ))}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Function Call 1 */}
-                  {showFunction1 && (
-                    <div
-                      className={`${function1Complete ? "bg-green-500" : "bg-pink-400"} text-white mx-2 mb-2 px-4 py-3 rounded-2xl text-sm font-semibold flex items-center gap-2 transition-all duration-500`}
-                    >
+                    {/* Function Call 1 */}
+                    {showFunction1 && (
                       <div
-                        className={`w-4 h-4 bg-white rounded-full flex items-center justify-center text-xs ${function1Complete ? "text-green-500" : "text-pink-400 animate-spin"}`}
+                        className={`${function1Complete ? "bg-green-500" : "bg-pink-400"} text-white mx-2 mb-2 px-4 py-3 rounded-2xl text-sm font-semibold flex items-center gap-2 transition-all duration-500`}
                       >
-                        {function1Complete ? "✓" : "⚡"}
+                        <div
+                          className={`w-4 h-4 bg-white rounded-full flex items-center justify-center text-xs ${function1Complete ? "text-green-500" : "text-pink-400 animate-spin"}`}
+                        >
+                          {function1Complete ? "✓" : "⚡"}
+                        </div>
+                        <span>
+                          {function1Complete
+                            ? "get_contact_info() completed"
+                            : 'get_contact_info("Sarah") executing...'}
+                        </span>
                       </div>
-                      <span>
-                        {function1Complete
-                          ? "get_contact_info() completed"
-                          : 'get_contact_info("Sarah") executing...'}
-                      </span>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Function Call 2 */}
-                  {showFunction2 && (
-                    <div
-                      className={`${function2Complete ? "bg-green-500" : "bg-pink-400"} text-white mx-2 mb-2 px-4 py-3 rounded-2xl text-sm font-semibold flex items-center gap-2 transition-all duration-500`}
-                    >
+                    {/* Function Call 2 */}
+                    {showFunction2 && (
                       <div
-                        className={`w-4 h-4 bg-white rounded-full flex items-center justify-center text-xs ${function2Complete ? "text-green-500" : "text-pink-400 animate-spin"}`}
+                        className={`${function2Complete ? "bg-green-500" : "bg-pink-400"} text-white mx-2 mb-2 px-4 py-3 rounded-2xl text-sm font-semibold flex items-center gap-2 transition-all duration-500`}
                       >
-                        {function2Complete ? "✓" : "⚡"}
-                      </div>
-                      <span>
-                        {function2Complete
-                          ? 'fetch_project("Blue Agent") completed'
-                          : 'fetch_project("Blue Agent") executing...'}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Typing Indicator */}
-                  {showTyping && (
-                    <div className="bg-white text-blue-600 mr-4 px-4 py-3 rounded-2xl flex items-center gap-3 shadow-md animate-pulse">
-                      <span>Processing email draft</span>
-                      <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
                         <div
-                          className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"
-                          style={{ animationDelay: "0.2s" }}
-                        ></div>
-                        <div
-                          className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"
-                          style={{ animationDelay: "0.4s" }}
-                        ></div>
+                          className={`w-4 h-4 bg-white rounded-full flex items-center justify-center text-xs ${function2Complete ? "text-green-500" : "text-pink-400 animate-spin"}`}
+                        >
+                          {function2Complete ? "✓" : "⚡"}
+                        </div>
+                        <span>
+                          {function2Complete
+                            ? 'fetch_project("Blue Agent") completed'
+                            : 'fetch_project("Blue Agent") executing...'}
+                        </span>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* AI Response */}
-                  {showResponse && (
-                    <div className="bg-white text-gray-700 mr-4 px-4 py-4 rounded-2xl shadow-md animate-in slide-in-from-bottom-2 duration-500">
-                      <div className="font-semibold text-green-600 mb-1">
-                        ✅ Email Draft Ready
+                    {/* Typing Indicator */}
+                    {showTyping && (
+                      <div className="bg-white text-blue-600 mr-4 px-4 py-3 rounded-2xl flex items-center gap-3 shadow-md animate-pulse">
+                        <span>Processing email draft</span>
+                        <div className="flex gap-1">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
+                          <div
+                            className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.2s" }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.4s" }}
+                          ></div>
+                        </div>
                       </div>
-                      <div className="text-sm text-gray-500 mb-1">
-                        To: sarah.johnson@company.com
-                      </div>
-                      <div className="text-sm text-gray-500 mb-2">
-                        Subject: Project Blue Agent - Database Migration Update
-                      </div>
-                      <div className="text-sm italic">
-                        Draft generated with Sarah's contact info and Blue Agent
-                        project details
-                      </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Demo Controls */}
-                  {!isPlaying && showResponse && (
-                    <div className="text-center mt-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={startDemo}
-                        className="bg-white bg-opacity-20 border-white border-opacity-30 text-white hover:bg-white hover:bg-opacity-30 rounded-full px-4 py-2 text-sm"
-                      >
-                        🔄 Replay Demo
-                      </Button>
-                    </div>
-                  )}
+                    {/* AI Response */}
+                    {showResponse && (
+                      <div className="bg-white text-gray-700 mr-4 px-4 py-4 rounded-2xl shadow-md animate-in slide-in-from-bottom-2 duration-500">
+                        <div className="font-semibold text-green-600 mb-1">
+                          ✅ Email Draft Ready
+                        </div>
+                        <div className="text-sm text-gray-500 mb-1">
+                          To: sarah.johnson@company.com
+                        </div>
+                        <div className="text-sm text-gray-500 mb-2">
+                          Subject: Project Blue Agent - Database Migration
+                          Update
+                        </div>
+                        <div className="text-sm italic">
+                          Draft generated with Sarah's contact info and Blue
+                          Agent project details
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Demo Controls */}
+                    {!isPlaying && showResponse && (
+                      <div className="text-center mt-4">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={startDemo}
+                          className="bg-white bg-opacity-20 border-white border-opacity-30 text-white hover:bg-white hover:bg-opacity-30 rounded-full px-4 py-2 text-sm"
+                        >
+                          🔄 Replay Demo
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -420,15 +426,14 @@ const ConcurrentFunctionCalling = () => {
                       const codeText = `// Enable concurrent function calling in your AI assistant
 import { ConcurrentFunctionCaller } from '@automation-architect/concurrent-functions';
 
-// Initialize with your function definitions
 const caller = new ConcurrentFunctionCaller({
   functions: [getContactInfo, fetchProject, sendEmail],
-  predictiveThreshold: 0.8 // Execute when 80% confident
+  predictiveThreshold: 0.8  // Execute when 80% confident
 });
 
-// Functions execute as user speaks
 caller.onSpeech("I need contact info for Sarah");
-// → getContactInfo() starts executing immediately`;
+// → getContactInfo() starts executing immediately
+`;
                       navigator.clipboard.writeText(codeText);
                     }}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2"
@@ -437,78 +442,24 @@ caller.onSpeech("I need contact info for Sarah");
                     Copy Code
                   </button>
                 </div>
-                
+
                 {/* Code Display */}
                 <div className="p-8 overflow-x-auto select-all">
                   <pre className="text-sm leading-relaxed">
                     <code className="block whitespace-pre">
-{`// Enable concurrent function calling in your AI assistant
+                      {`// Enable concurrent function calling in your AI assistant
 import { ConcurrentFunctionCaller } from '@automation-architect/concurrent-functions';
 
-// Initialize with your function definitions
 const caller = new ConcurrentFunctionCaller({
   functions: [getContactInfo, fetchProject, sendEmail],
-  predictiveThreshold: 0.8 // Execute when 80% confident
+  predictiveThreshold: 0.8  // Execute when 80% confident
 });
 
-// Functions execute as user speaks
 caller.onSpeech("I need contact info for Sarah");
-// → getContactInfo() starts executing immediately`}
+// → getContactInfo() starts executing immediately
+`}
                     </code>
                   </pre>
-                </div>
-
-                {/* Styled Code Display (for visual appeal) */}
-                <div className="absolute inset-0 p-8 overflow-x-auto pointer-events-none">
-                  <div className="text-green-400 text-sm mb-4">
-                    // Enable concurrent function calling in your AI assistant
-                  </div>
-                  <div className="text-blue-400">import</div>{" "}
-                  <span className="text-yellow-300">{"{"}</span>{" "}
-                  ConcurrentFunctionCaller{" "}
-                  <span className="text-yellow-300">{"}"}</span>{" "}
-                  <div className="text-blue-400">from</div>{" "}
-                  <span className="text-green-300">
-                    '@automation-architect/concurrent-functions'
-                  </span>
-                  <span className="text-gray-400">;</span>
-                  <br />
-                  <br />
-                  <div className="text-green-400 text-sm mb-2">
-                    // Initialize with your function definitions
-                  </div>
-                  <div className="text-blue-400">const</div> caller ={" "}
-                  <div className="text-blue-400">new</div>{" "}
-                  ConcurrentFunctionCaller
-                  <span className="text-yellow-300">({"{"}</span>
-                  <br />
-                  &nbsp;&nbsp;functions:{" "}
-                  <span className="text-yellow-300">[</span>getContactInfo,
-                  fetchProject, sendEmail
-                  <span className="text-yellow-300">]</span>,<br />
-                  &nbsp;&nbsp;predictiveThreshold:{" "}
-                  <span className="text-orange-300">0.8</span>{" "}
-                  <div className="text-green-400">
-                    // Execute when 80% confident
-                  </div>
-                  <br />
-                  <span className="text-yellow-300">{"}"});</span>
-                  <br />
-                  <br />
-                  <div className="text-green-400 text-sm mb-2">
-                    // Functions execute as user speaks
-                  </div>
-                  caller.<span className="text-yellow-300">onSpeech</span>
-                  <span className="text-yellow-300">(</span>
-                  <span className="text-green-300">
-                    "I need contact info for Sarah"
-                  </span>
-                  <span className="text-yellow-300">)</span>
-                  <span className="text-gray-400">;</span>
-                  <br />
-                  <div className="text-green-400 text-sm">
-                    // → getContactInfo() starts executing immediately
-                  </div>
                 </div>
               </div>
             </div>
@@ -523,23 +474,33 @@ caller.onSpeech("I need contact info for Sarah");
                 Ready to Make Your AI Lightning Fast?
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-                Join forward-thinking companies already using concurrent function
-                calling to deliver exceptional user experiences.
+                Join forward-thinking companies already using concurrent
+                function calling to deliver exceptional user experiences.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="text-4xl font-bold text-gray-800 block mb-2">50+</div>
+                <div className="text-4xl font-bold text-gray-800 block mb-2">
+                  50+
+                </div>
                 <div className="text-lg text-gray-600">Companies Using</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-gray-800 block mb-2">1.5s</div>
-                <div className="text-lg text-gray-600">Average Response Time</div>
+                <div className="text-4xl font-bold text-gray-800 block mb-2">
+                  1.5s
+                </div>
+                <div className="text-lg text-gray-600">
+                  Average Response Time
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-gray-800 block mb-2">60%</div>
-                <div className="text-lg text-gray-600">Faster Than Traditional AI</div>
+                <div className="text-4xl font-bold text-gray-800 block mb-2">
+                  60%
+                </div>
+                <div className="text-lg text-gray-600">
+                  Faster Than Traditional AI
+                </div>
               </div>
             </div>
 
