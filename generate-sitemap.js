@@ -16,37 +16,37 @@ const staticPages = [
     title: 'Home - Automation Architect'
   },
   {
-    url: '/#/services/llm-applications',
+    url: '/services/llm-applications',
     priority: '0.9',
     changefreq: 'monthly',
     title: 'LLM Applications - Automation Architect'
   },
   {
-    url: '/#/services/data-pipelines',
+    url: '/services/data-pipelines',
     priority: '0.9',
     changefreq: 'monthly',
     title: 'Data Pipelines - Automation Architect'
   },
   {
-    url: '/#/services/system-workflows',
+    url: '/services/system-workflows',
     priority: '0.9',
     changefreq: 'monthly',
     title: 'System Workflows - Automation Architect'
   },
   {
-    url: '/#/ai-consulting-firm',
+    url: '/ai-consulting-firm',
     priority: '0.8',
     changefreq: 'monthly',
     title: 'AI Consulting Firm - Automation Architect'
   },
   {
-    url: '/#/vibe-coder-rescue',
+    url: '/vibe-coder-rescue',
     priority: '0.8',
     changefreq: 'monthly',
     title: 'Vibe Coder Rescue - Automation Architect'
   },
   {
-    url: '/#/concurrent-function-calling',
+    url: '/concurrent-function-calling',
     priority: '0.7',
     changefreq: 'monthly',
     title: 'Concurrent Function Calling - Automation Architect'
