@@ -36,9 +36,9 @@ This serves your static build at http://localhost:3000 to test before deployment
 ## 📁 What Changed?
 
 ### 1. Router Configuration
-- **Before**: BrowserRouter (requires server-side routing support)
-- **After**: HashRouter (works with any static hosting)
-- **URLs**: Now use hash routing (e.g., `/#/services/llm-applications`)
+- **Approach**: BrowserRouter with clean URLs
+- **URLs**: Clean, SEO-friendly paths (e.g., `/services/llm-applications`)
+- **Implementation**: Directory structure with individual HTML files
 
 ### 2. Build Process
 - **Custom Build Script**: `build-static.js` generates static files
@@ -125,11 +125,11 @@ Static assets in the `/assets/` folder are configured for long-term caching (1 y
 
 ## 🐛 Troubleshooting
 
-### Hash URLs Look Ugly
-This is normal for static sites. Hash routing ensures your app works without server configuration. Most users won't notice the `#` in the URL.
+### Route Not Found 
+If routes aren't working, ensure your hosting service supports the _redirects file or configure fallback routing to index.html for SPA functionality.
 
-### Route Not Found
-Make sure you're using hash-based links (`/#/route`) instead of regular links (`/route`).
+### Clean URLs Not Loading
+Verify that your static hosting service properly serves the directory structure and supports SPA routing fallbacks.
 
 ### Static Preview Not Working
 Ensure you've run `node build-static.js` first to generate the static files.
