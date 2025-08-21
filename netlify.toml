@@ -12,6 +12,7 @@
   from = "/*/index.html"
   to = "/:splat/"
   status = 301
+  force = true
 
 # Redirect all routes to index.html for SPA routing
 [[redirects]]
