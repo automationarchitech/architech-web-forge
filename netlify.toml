@@ -7,6 +7,12 @@
 # Note: Netlify sitemap plugin removed since we generate our own sitemap.xml
 # Our custom sitemap is more comprehensive and works better with hash routing
 
+# Redirect /something/index.html to /something/ for all static routes
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat/"
+  status = 301
+
 # Redirect all routes to index.html for SPA routing
 [[redirects]]
   from = "/*"
