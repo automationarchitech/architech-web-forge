@@ -39,7 +39,7 @@ const routes = [
   { 
     path: '/services/data-pipelines', 
     title: 'Data Pipelines - Automation Architect',
-    description: 'Streamline your data flow with robust, scalable data pipeline solutions. ETL processes and real-time data processing.'
+    description: 'Streamline your data flow with robust, scalable data pipeline solutions, ETL processes and real-time data processing.'
   },
   { 
     path: '/services/system-workflows', 
@@ -54,12 +54,12 @@ const routes = [
   { 
     path: '/vibe-coder-rescue', 
     title: 'Vibe Coder Rescue - Automation Architect',
-    description: 'Professional code rescue and optimization services. Modernize legacy systems and improve code quality.'
+    description: 'Professional code rescue and optimization services. Improve code quality with a free consultation.'
   },
   { 
     path: '/concurrent-function-calling', 
     title: 'Concurrent Function Calling - Automation Architect',
-    description: 'Advanced concurrent function calling demonstrations and implementations. Parallel processing solutions.'
+    description: 'Advanced concurrent function calling demonstrations and implementations for LLMs. Parallel realtime processing solutions.'
   }
 ];
 
