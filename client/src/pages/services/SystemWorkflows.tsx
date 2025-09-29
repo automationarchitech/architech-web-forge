@@ -113,13 +113,13 @@ const SystemWorkflows = () => {
           <p className="text-xl text-gray-600 mb-8">
             Let's connect your systems and automate your business processes.
           </p>
-          <Link
-            to="/#contact"
+          <a
+            href="mailto:hello@automationarchitech.com"
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-light hover:bg-gray-800 transition-colors"
           >
             Schedule Consultation
             <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </section>
 

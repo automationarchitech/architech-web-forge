@@ -121,13 +121,13 @@ const AIConsultingFirm = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link 
-                to="/#contact"
+              <a 
+                href="mailto:hello@automationarchitech.com"
                 className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 Get Free Consultation
                 <ArrowRight size={18} />
-              </Link>
+              </a>
               
               <Link 
                 to="/#services"
@@ -303,13 +303,13 @@ const AIConsultingFirm = () => {
             Get a free consultation and discover how our AI solutions can accelerate your growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/#contact"
+            <a 
+              href="mailto:hello@automationarchitech.com"
               className="bg-white text-gray-900 px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2"
             >
               Schedule Free Consultation
               <ArrowRight size={18} />
-            </Link>
+            </a>
             <Link 
               to="/"
               className="border border-gray-600 text-gray-300 px-8 py-3 rounded-lg text-lg font-light hover:border-gray-400 hover:text-white transition-all duration-300"

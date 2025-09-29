@@ -129,13 +129,13 @@ const VibeCoderRescue = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link 
-                to="/#contact"
+              <a 
+                href="mailto:hello@automationarchitech.com"
                 className="bg-red-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 Rescue My Code 🆘
                 <ArrowRight size={18} />
-              </Link>
+              </a>
               
               <Link 
                 to="#solutions"
@@ -310,13 +310,13 @@ const VibeCoderRescue = () => {
             Your idea deserves to work. Let's make it happen together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/#contact"
+            <a 
+              href="mailto:hello@automationarchitech.com"
               className="bg-white text-red-600 px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2"
             >
               Rescue My Project Now 🆘
               <ArrowRight size={18} />
-            </Link>
+            </a>
             <Link 
               to="/"
               className="border border-red-300 text-red-100 px-8 py-3 rounded-lg text-lg font-light hover:border-white hover:text-white transition-all duration-300"

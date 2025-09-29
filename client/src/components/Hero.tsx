@@ -40,10 +40,10 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button onClick={scrollToContact} className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2">
+            <a href="mailto:hello@automationarchitech.com" className="bg-gray-900 text-white px-8 py-3 rounded-lg text-lg font-light hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2">
               Start Your Project
               <ArrowRight size={18} />
-            </button>
+            </a>
             
             <button onClick={() => document.getElementById("services")?.scrollIntoView({
             behavior: "smooth"
