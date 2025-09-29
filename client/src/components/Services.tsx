@@ -107,8 +107,8 @@ const Services = () => {
                       ))}
                     </ul>
 
-                    <a 
-                      href="mailto:hello@automationarchitech.com"
+                    <Link 
+                      to={service.link}
                       className={`mt-6 w-full bg-gray-50 text-gray-600 py-2 px-4 rounded-lg font-light hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
                         isMobile 
                           ? (cardInView ? 'opacity-100' : 'opacity-0') 
@@ -117,7 +117,7 @@ const Services = () => {
                     >
                       Learn More
                       <ArrowRight size={14} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );
