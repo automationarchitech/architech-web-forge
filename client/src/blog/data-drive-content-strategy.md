@@ -3,6 +3,9 @@
 ## Client/Company
 Mixed Analytics
 
+## Industry
+SAAS
+
 ## Problem
 Growing SaaS product needed strategic support with enterprise customer acquisition and content marketing to drive user growth. Mixed Analytics had developed a Google Chrome extension that enabled non-technical users to connect APIs to Google Sheets, starting with approximately 200,000 monthly active users on the Chrome Web Store.
 

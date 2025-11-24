@@ -3,6 +3,9 @@
 ## Client/Company
 Vextras (Software Agency)
 
+## Industry
+Medical
+
 ## Problem
 Doctors and clinicians needed an efficient way to match patients to clinical trials by evaluating patient records against 50+ complex eligibility criteria, including absolute exclusions and conditional edge cases.
 
