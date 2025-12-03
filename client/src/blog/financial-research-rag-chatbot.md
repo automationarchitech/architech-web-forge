@@ -1,7 +1,7 @@
 # Scaling Financial Content Creation with Web Scraping and RAG Technology
 
 ## Client/Company
-Financial Market Intelligence Platform
+Private Equity Firm
 
 ## Industry
 Finance & Investment Research

@@ -30,7 +30,7 @@ The system involved approximately **5 editors** managing this workflow daily, wi
 ## Solution
 
 ### Notion + Coda Integration with Automated Link Population
-We implemented a comprehensive link management system that connected Coda's ad sales tracking with Notion's editorial workflow, eliminating manual link handling and providing proper organizational structure.
+We implemented a comprehensive link management system that connected Coda's ad sales tracking with Notion's editorial workflow, eliminating manual link handling and providing proper organizational structure. The solution utilized automated middleware workflows to synchronize data between platforms and maintain real-time consistency across the editorial and sales operations systems.
 
 #### Implementation Timeline
 The entire system was designed, built, tested, and deployed over **2 months**, with a cold cutover deployment strategy.
@@ -88,6 +88,7 @@ Rather than running both systems in parallel, we executed a **cold cutover**. Si
 
 **Zapier Event Listener Architecture**
 - Configured Zapier to listen for new row creation events in the Coda ad sales table
+- Implemented automated middleware workflows using Zapier to orchestrate data flow between systems
 - Conditional logic identifies email-type ads vs. other ad formats
 - Selective metadata mapping ensures only relevant fields populate in Notion
 - Maintains referential integrity between Coda source records and Notion link entries

@@ -24,7 +24,7 @@ The core issue was that data from multiple advertising channels had no unified i
 ## Solution
 
 ### Automated Multi-Platform Reporting System
-We implemented a comprehensive reporting automation system that integrated APIs from all major advertising platforms, created a proper data indexing architecture, and rebuilt the data model to enable both real-time reporting and historical analysis.
+We implemented a comprehensive reporting automation system that integrated APIs from all major advertising platforms, created a proper data indexing architecture, and rebuilt the data model to enable both real-time reporting and historical analysis. The solution leveraged automated middleware workflows to orchestrate data synchronization across multiple platforms while maintaining data integrity and enabling seamless integration between disparate advertising systems.
 
 #### Implementation Timeline
 The full system was designed, built, tested, and deployed over 6 months, with ongoing maintenance for adding new ad units to the KPI pipeline.
@@ -126,6 +126,7 @@ Modern marketing operations span multiple platforms, each with different data mo
 Building effective automation requires:
 - Understanding each platform's API capabilities and constraints
 - Creating custom data pipelines tailored to each source
+- Implementing automated middleware workflows to bridge gaps between incompatible systems
 - Navigating company policies around Terms of Service compliance
 - Finding creative solutions when direct API access isn't available
 
