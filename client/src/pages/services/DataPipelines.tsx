@@ -1,34 +1,34 @@
 
-import { ArrowLeft, Workflow, CheckCircle, ArrowRight } from "lucide-react";
+import { ArrowLeft, Database, CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const SystemWorkflows = () => {
+const DataPipelines = () => {
   const features = [
-    "API integration & middleware",
-    "Workflow automation with Zapier/n8n",
-    "Custom webhook development",
-    "Event-driven architectures",
-    "Cross-platform data synchronization"
+    "Real-time data processing pipelines",
+    "Web scraping at scale",
+    "Data validation & cleaning",
+    "ETL/ELT workflow automation",
+    "API integration & monitoring"
   ];
 
   const benefits = [
     {
-      title: "Seamless Integration",
-      description: "Connect disparate systems and applications for unified business operations."
+      title: "Real-time Processing",
+      description: "Process and analyze data as it arrives for instant insights and decision making."
     },
     {
-      title: "Process Automation",
-      description: "Eliminate manual tasks and reduce human error with intelligent automation."
+      title: "Scalable Architecture",
+      description: "Handle massive data volumes with distributed processing and cloud-native solutions."
     },
     {
-      title: "Real-time Synchronization",
-      description: "Keep your data consistent across all platforms with instant updates."
+      title: "Data Quality Assurance",
+      description: "Built-in validation and cleaning ensures your data is accurate and reliable."
     },
     {
-      title: "Custom Workflows",
-      description: "Tailored automation solutions that fit your specific business processes."
+      title: "Automated Workflows",
+      description: "Set up once and let our systems handle continuous data processing automatically."
     }
   ];
 
@@ -39,29 +39,26 @@ const SystemWorkflows = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-colors">
-            <ArrowLeft size={20} />
-            Back to Home
-          </Link>
+          
           
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center">
-                <Workflow className="w-8 h-8 text-gray-600" />
+                <Database className="w-8 h-8 text-gray-600" />
               </div>
               <h1 className="text-4xl md:text-5xl font-light text-gray-900">
-                System Workflows
+                Data Pipelines & Scrapers
               </h1>
             </div>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Connect your applications seamlessly with intelligent automation and workflow orchestration. 
-              We build the bridges between your systems to create unified, efficient business processes.
+              Robust, scalable solutions for collecting, processing, and managing your data efficiently. 
+              From web scraping to real-time data pipelines, we help you turn raw data into actionable insights.
             </p>
             
             <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop" 
-              alt="System Integration and Workflows" 
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=600&fit=crop" 
+              alt="Data Processing and Analytics" 
               className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
             />
           </div>
@@ -73,7 +70,7 @@ const SystemWorkflows = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-light text-gray-900 mb-8">Integration Services</h2>
+              <h2 className="text-3xl font-light text-gray-900 mb-8">Our Capabilities</h2>
               <ul className="space-y-4">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
@@ -85,7 +82,7 @@ const SystemWorkflows = () => {
             </div>
             
             <div>
-              <h2 className="text-3xl font-light text-gray-900 mb-8">Business Impact</h2>
+              <h2 className="text-3xl font-light text-gray-900 mb-8">Why Choose Our Solutions</h2>
               <div className="space-y-6">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="border-l-4 border-gray-200 pl-6">
@@ -103,18 +100,18 @@ const SystemWorkflows = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-light text-gray-900 mb-6">
-            Ready to Streamline Your Workflows?
+            Need Data Pipeline Solutions?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Let's connect your systems and automate your business processes.
+            Let's build the data infrastructure that powers your business decisions.
           </p>
-          <Link 
-            to="/#contact"
+          <a 
+            href="mailto:hello@automationarchitech.com"
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-light hover:bg-gray-800 transition-colors"
           >
-            Schedule Consultation
+            Start Your Project
             <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -123,4 +120,4 @@ const SystemWorkflows = () => {
   );
 };
 
-export default SystemWorkflows;
+export default DataPipelines;

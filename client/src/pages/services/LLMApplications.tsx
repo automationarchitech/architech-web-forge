@@ -10,17 +10,19 @@ const LLMApplications = () => {
     "Document analysis & summarization", 
     "Intelligent content generation",
     "RAG (Retrieval Augmented Generation) systems",
-    "AI-powered customer support bots"
+    "AI-powered customer support bots",
+    "Sentiment analysis & opinion mining",
+    "Agentic Systems with Human in the Loop"
   ];
 
   const benefits = [
     {
       title: "24/7 Availability",
-      description: "AI systems work around the clock, providing instant responses to your customers."
+      description: "AI systems work around the clock."
     },
     {
       title: "Scalable Solutions", 
-      description: "Handle thousands of conversations simultaneously without additional staffing."
+      description: "Handle thousands of tasks simultaneously without additional staffing."
     },
     {
       title: "Cost Effective",
@@ -39,10 +41,7 @@ const LLMApplications = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 transition-colors">
-            <ArrowLeft size={20} />
-            Back to Home
-          </Link>
+          
           
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
@@ -108,13 +107,13 @@ const LLMApplications = () => {
           <p className="text-xl text-gray-600 mb-8">
             Let's discuss how LLM applications can transform your business operations.
           </p>
-          <Link 
-            to="/#contact"
+          <a 
+            href="mailto:hello@automationarchitech.com"
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-light hover:bg-gray-800 transition-colors"
           >
             Get Started
             <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </section>
 
