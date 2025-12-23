@@ -77,10 +77,11 @@ const commentsToggleScript = new URL('/toggle-theme.js', siteOrigin).href;
   <meta name="theme-color" content="#0f172a" />
   <script is:inline src={commentsToggleScript} />
 
-  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
   {plausibleDomain && (
     <script
+      is:inline
       defer
       data-domain={plausibleDomain}
       data-api={plausibleApi}
@@ -91,7 +92,7 @@ const commentsToggleScript = new URL('/toggle-theme.js', siteOrigin).href;
 
   {gaId && (
     <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
       <script is:inline>
         {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');`}
       </script>
@@ -100,6 +101,7 @@ const commentsToggleScript = new URL('/toggle-theme.js', siteOrigin).href;
 
   {umamiScript && umamiWebsiteId && (
     <script
+      is:inline
       async
       src={umamiScript}
       data-website-id={umamiWebsiteId}
