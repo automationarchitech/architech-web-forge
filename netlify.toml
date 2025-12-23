@@ -4,9 +4,6 @@
   publish = "dist"
   command = "npm run build"
 
-# Form notifications
-[[plugins]]
-  package = "@netlify/plugin-form-notifications"
-
-  [plugins.inputs]
-    email = "hello@automationarchitech.com"
+# Form submissions will automatically send to the form admin email
+# Configure additional notifications in Netlify Dashboard:
+# Site settings > Forms > Form notifications
