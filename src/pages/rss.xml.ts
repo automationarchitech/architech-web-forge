@@ -4,8 +4,8 @@ import { getCollection } from 'astro:content';
 import { siteConfig } from '@/config/site';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
   );
 
   return rss({
@@ -14,9 +14,9 @@ export async function GET(context: APIContext) {
     site: context.site ?? new URL(siteConfig.url),
     items: posts.map((post) => ({
       title: post.data.title,
-      description: post.data.excerpt,
+      description: post.data.description,
       link: `/blog/${post.slug}/`,
-      pubDate: post.data.date
+      pubDate: post.data.publishDate
     }))
   });
 }

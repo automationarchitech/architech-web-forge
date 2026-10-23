@@ -3,12 +3,12 @@ import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  post: CollectionEntry<'posts'>;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post } = Astro.props;
 const permalink = `/blog/${post.slug}/`;
-const formattedDate = post.data.date.toLocaleDateString(undefined, {
+const formattedDate = post.data.publishDate.toLocaleDateString(undefined, {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -18,7 +18,7 @@ const formattedDate = post.data.date.toLocaleDateString(undefined, {
   <a href={permalink} class="block space-y-3">
     <p class="text-sm uppercase tracking-wide text-gray-500">{formattedDate}</p>
     <h3 class="text-2xl font-semibold text-gray-900">{post.data.title}</h3>
-    {post.data.excerpt && <p class="text-gray-600">{post.data.excerpt}</p>}
+    {post.data.description && <p class="text-gray-600">{post.data.description}</p>}
     {post.data.tags?.length > 0 && (
       <ul class="flex flex-wrap gap-2 text-sm text-gray-500">
         {post.data.tags.map((tag) => (

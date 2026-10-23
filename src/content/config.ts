@@ -1,15 +1,27 @@
 import { defineCollection, z } from "astro:content";
 
-const posts = defineCollection({
+// Mirrors docs/Handoff/Templates/templates for case studies/TEMPLATE-blog-post-AECO-optimized.md
+const blog = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),
-    tags: z.array(z.string()),
-    excerpt: z.string().optional(),
+    description: z.string(),
+    publishDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    author: z.string().default("Automation Architech"),
+    category: z.enum([
+      "Process Automation",
+      "AI Decision Support",
+      "Data Integration",
+      "Industry Insights"
+    ]),
+    tags: z.array(z.string()).default([]),
+    featured: z.boolean().default(false),
+    slug: z.string().optional(), // Astro generates slug from filename
+    relatedPosts: z.array(z.string()).default([]), // Array of blog slugs
+    relatedCaseStudies: z.array(z.string()).default([]), // Array of case study slugs
     hero: z.string().optional(),
     draft: z.boolean().default(false),
-    canonical: z.string().url().optional(),
     comments: z.boolean().default(true)
   })
 });
@@ -35,6 +47,6 @@ const caseStudies = defineCollection({
 });
 
 export const collections = {
-  posts,
+  blog,
   'case-studies': caseStudies
 };

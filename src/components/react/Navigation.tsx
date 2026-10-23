@@ -60,7 +60,7 @@ export default function Navigation() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="/" className="flex items-center gap-3">
           <img
-            src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png"
+            src="/images/logo.png"
             alt={siteConfig.title}
             className="h-12 w-12"
             loading="lazy"

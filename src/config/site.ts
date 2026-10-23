@@ -9,14 +9,20 @@ const publicSiteUrl = import.meta.env.PUBLIC_SITE_URL ?? 'https://automationarch
 export const siteConfig = {
   title: 'Automation Architech',
   description:
-    'Automation Architech unifies AI application delivery, resilient data pipelines, and workflow automation into a single Astro experience.',
+    'Data pipelines, automated reporting and workflow automation for marketing, sales and ops teams that have outgrown Coda, Airtable, Google Sheets and Zapier.',
   url: publicSiteUrl,
   email: 'hello@automationarchitech.com',
+  logo: '/images/logo.png',
+  ogImage: '/images/og-default.png',
+  social: [
+    { label: 'Medium', href: 'https://medium.com/automation-architech', icon: 'lucide:book-open' },
+    { label: 'Facebook', href: 'https://www.facebook.com/automationarchitech', icon: 'lucide:facebook' }
+  ],
   navigation: <NavLink[]>[
     { label: 'Home', href: '/#home' },
-    { label: 'Services', href: '/#' },
+    { label: 'Services', href: '/#services' },
     { label: 'Industries', href: '/#industries' },
-    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Case Studies', href: '/case-studies/' },
     { label: 'Insights', href: '/blog/' },
     { label: 'Contact', href: '/#contact' }
   ],
@@ -28,7 +34,7 @@ export const siteConfig = {
       description:
         'Custom ChatGPT-style copilots, knowledge assistants, and workflow copilots grounded in your data.',
       icon: 'brain',
-      link: '/services/llm-applications'
+      link: '/services/llm-applications/'
     },
     {
       slug: 'data-pipelines',
@@ -37,7 +43,7 @@ export const siteConfig = {
       description:
         'Streaming + batch ETL, scraping frameworks, and validation layers that keep analytics trustworthy.',
       icon: 'database',
-      link: '/services/data-pipelines'
+      link: '/services/data-pipelines/'
     },
     {
       slug: 'system-workflows',
@@ -46,7 +52,7 @@ export const siteConfig = {
       description:
         'Zapier/n8n orchestration, custom webhooks, and event-driven middleware for cross-product flows.',
       icon: 'workflow',
-      link: '/services/system-workflows'
+      link: '/services/system-workflows/'
     }
   ]
 };

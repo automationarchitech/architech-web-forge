@@ -301,6 +301,18 @@ Examples:
 **relatedCaseStudies**: Array of 1-2 relevant case study slugs
 - Link to case studies that illustrate points made in post
 - Example: Manufacturing post links to `["manufacturing-production-scheduling"]`
+- These render as a "Related case studies" block at the end of the post
+
+### Optional Fields
+
+These are validated by the `blog` schema in `src/content/config.ts`; leave them out unless needed.
+
+- **updatedDate**: `"YYYY-MM-DD"` when a post is meaningfully revised (used for `dateModified` in structured data)
+- **hero**: Path to a header image under `/public`, e.g. `"/images/blog/coda-reporting.png"` (also used as the social preview image)
+- **draft**: `true` to keep a post out of the build, RSS and sitemap until it is ready
+- **comments**: `false` to hide the Utterances comment box on this post
+
+**Schema source of truth:** `src/content/config.ts` (the `blog` collection). If you add a field here, add it to the schema too, or the build will drop it.
 
 ---
 
