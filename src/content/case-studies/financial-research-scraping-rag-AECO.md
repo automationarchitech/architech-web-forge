@@ -1,6 +1,6 @@
 ---
 title: "40,000+ Research PDFs Preserved: Authenticated Scraping and RAG for Financial Content"
-company: "Financial Market Intelligence Startup"
+company: "Private Equity Firm"
 industry: ["Financial Services"]
 industryIcon: "lucide:landmark"
 solutionType: "Multi-Platform Data Integration"
@@ -19,14 +19,14 @@ relatedCases: ["ad-performance-reporting", "content-strategy-growth", "clinical-
 
 | | | | |
 |----------------------|------------------------------------------------------------------|------------------|-----------------------------------------------|
-| **Industry** | Financial Services (market intelligence) | **Company Size** | Early-stage startup covering 3,000+ public companies |
+| **Industry** | Financial Services (private equity) | **Company Size** | PE firm building a market intelligence platform for 3,000+ public companies |
 | **Challenge** | 40,000+ research PDFs behind a login that expired in 90 days | **Solution Type** | Authenticated Web Scraping + RAG Content Generation |
 | **Timeline** | 6-week extraction sprint, then RAG system build | **Key Outcome** | Full archive preserved; article research time cut 95% (2-3 hrs → 5-10 min) |
 | **Scale Indicators** | ~5,000 nested pages, 40,000+ documents, HTML + PDF formats | **Integration** | Selenium, Puppeteer, AWS S3, LlamaIndex, Pinecone, GPT-4, Claude |
 
 ## Problem
 
-A financial market intelligence startup was building a Wikipedia-style reference platform with search-optimized pages for more than 3,000 publicly traded companies. The goal was to rank for queries like "3M stock report" or "3M earnings Q3" with unique, data-driven articles.
+A private equity firm was building a financial market intelligence platform: a Wikipedia-style reference site with search-optimized pages for more than 3,000 publicly traded companies. The goal was to rank for queries like "3M stock report" or "3M earnings Q3" with unique, data-driven articles.
 
 The team had temporary access to a premium research platform holding roughly 40,000 research PDFs: quarterly earnings reports, analyst notes and market commentary. That access was the whole opportunity, and it had a deadline.
 
@@ -112,7 +112,7 @@ The next phase connects the system to the WordPress API so approved articles pub
 ### Data Preservation
 
 - All 40,000+ research documents extracted before access expired
-- A permanent, searchable archive of institutional-grade analysis the startup could not otherwise rebuild
+- A permanent, searchable archive of institutional-grade analysis the firm could not otherwise rebuild
 
 ### Content Production
 
