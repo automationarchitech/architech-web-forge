@@ -154,9 +154,9 @@ function CaseStudyCard({ study }) {
 
         {/* Metric Banner */}
         <div className="w-full bg-gray-200 py-3 px-4 rounded-sm mb-4">
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-900">{study.metric}</span>
-            <span className="text-sm font-medium text-gray-700">{study.metricLabel}</span>
+          <div className="flex items-center gap-3">
+            <span className="shrink-0 text-3xl font-bold leading-none text-gray-900">{study.metric}</span>
+            <span className="text-sm font-medium leading-tight text-gray-700">{study.metricLabel}</span>
           </div>
         </div>
 
