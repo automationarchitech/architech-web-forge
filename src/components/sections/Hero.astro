@@ -14,7 +14,7 @@ import RotatingHeadline from '../react/RotatingHeadline';
 
     <div class="animate-fade-in delay-300 mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
       <a
-        href="/case-studies"
+        href="/case-studies/"
         class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-8 py-4 text-lg font-medium text-white transition-colors duration-200 hover:bg-gray-800"
       >
         See Our Work
@@ -28,7 +28,7 @@ import RotatingHeadline from '../react/RotatingHeadline';
       </a>
     </div>
 
-    <div class="mt-12 grid gap-8 lg:grid-cols-3">
+    <div id="services" class="mt-12 grid scroll-mt-24 gap-8 lg:grid-cols-3">
       <ServiceCard
         icon="lucide:settings"
         title="Process Automation"
@@ -38,7 +38,7 @@ import RotatingHeadline from '../react/RotatingHeadline';
           'Scale capacity 5-10x without additional headcount',
           'Free your team to focus on strategic work'
         ]}
-        learnMoreUrl="/case-studies?service=process-automation"
+        learnMoreUrl="/case-studies/?service=process-automation"
         ctaText="See case studies →"
         client:idle
       />
@@ -51,7 +51,7 @@ import RotatingHeadline from '../react/RotatingHeadline';
           'Reduce expert bottlenecks (legal review, clinical assessment, due diligence)',
           'Built-in verification layers to prevent AI hallucinations (99% accuracy)'
         ]}
-        learnMoreUrl="/case-studies?service=ai-decision-support"
+        learnMoreUrl="/case-studies/?service=ai-decision-support"
         ctaText="See case studies →"
         client:idle
       />
@@ -64,7 +64,7 @@ import RotatingHeadline from '../react/RotatingHeadline';
           'Automate report generation that currently takes hours',
           'Enable historical analysis (3+ years) impossible in spreadsheets'
         ]}
-        learnMoreUrl="/case-studies?service=multi-platform-data-integration"
+        learnMoreUrl="/case-studies/?service=multi-platform-data-integration"
         ctaText="See case studies →"
         client:idle
       />

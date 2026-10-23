@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Factory, Heart, Monitor, Newspaper, Package, Brain, Database, Settings, FileText } from 'lucide-react';
+import { Factory, Heart, Monitor, Newspaper, Package, Landmark, Brain, Database, Settings, FileText } from 'lucide-react';
 
 // Icon mapping for case studies
 const iconMap = {
@@ -8,6 +8,7 @@ const iconMap = {
   'lucide:monitor': Monitor,
   'lucide:newspaper': Newspaper,
   'lucide:package': Package,
+  'lucide:landmark': Landmark,
   'lucide:brain': Brain,
   'lucide:database': Database,
   'lucide:settings': Settings,
@@ -128,7 +129,7 @@ function CaseStudyCard({ study }) {
           {study.industry.map((ind, idx) => (
             <a
               key={`industry-${idx}`}
-              href={`/case-studies?industry=${encodeURIComponent(ind.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-'))}`}
+              href={`/case-studies/?industry=${encodeURIComponent(ind.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-'))}`}
               className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600 hover:bg-gray-200 transition-colors"
             >
               {ind}
@@ -138,7 +139,7 @@ function CaseStudyCard({ study }) {
           {/* Service Type Tag (if exists) */}
           {study.solutionType && (
             <a
-              href={`/case-studies?service=${encodeURIComponent(study.solutionType.toLowerCase().replace(/ /g, '-'))}`}
+              href={`/case-studies/?service=${encodeURIComponent(study.solutionType.toLowerCase().replace(/ /g, '-'))}`}
               className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600 hover:bg-gray-200 transition-colors"
             >
               {study.solutionType}
@@ -153,9 +154,9 @@ function CaseStudyCard({ study }) {
 
         {/* Metric Banner */}
         <div className="w-full bg-gray-200 py-3 px-4 rounded-sm mb-4">
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-900">{study.metric}</span>
-            <span className="text-sm font-medium text-gray-700">{study.metricLabel}</span>
+          <div className="flex items-center gap-3">
+            <span className="shrink-0 text-3xl font-bold leading-none text-gray-900">{study.metric}</span>
+            <span className="text-sm font-medium leading-tight text-gray-700">{study.metricLabel}</span>
           </div>
         </div>
 
@@ -166,7 +167,7 @@ function CaseStudyCard({ study }) {
 
         {/* CTA Link */}
         <a
-          href={`/case-studies/${study.slug}`}
+          href={`/case-studies/${study.slug}/`}
           className="inline-flex items-center text-gray-900 font-medium hover:text-gray-700 transition-colors"
         >
           See more

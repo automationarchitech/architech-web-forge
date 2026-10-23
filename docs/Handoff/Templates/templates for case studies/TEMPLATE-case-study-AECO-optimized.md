@@ -367,10 +367,10 @@ The system serves [X] primary user groups:
 **industry**: Array of industries (supports multi-industry cases)
 - Single: `["Manufacturing"]`
 - Multiple: `["Publishing & Media", "E-commerce"]`
-- Available options: Manufacturing, Healthcare, Publishing & Media, E-commerce, SaaS, Legal Tech, Education Technology
+- Available options: Manufacturing, Healthcare, Publishing & Media, E-commerce, SaaS, Financial Services, Legal Tech, Education Technology
 
 **industryIcon**: Lucide icon for industry
-- Available: `factory`, `heart`, `newspaper`, `package`, `monitor`, `scale`, `graduation-cap`
+- Available: `factory`, `heart`, `newspaper`, `package`, `monitor`, `landmark`, `scale`, `graduation-cap`
 
 **solutionType**: Service category name
 - Options: `"Process Automation"`, `"AI Decision Support"`, `"Multi-Platform Data Integration"`
@@ -419,6 +419,7 @@ The system serves [X] primary user groups:
 - Education Technology: `lucide:graduation-cap`
 - Manufacturing: `lucide:factory`
 - SaaS: `lucide:monitor`
+- Financial Services: `lucide:landmark`
 
 ### Solution Type Icons (solutionIcon)
 - Process Automation: `lucide:settings`

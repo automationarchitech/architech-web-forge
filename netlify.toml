@@ -7,3 +7,9 @@
 # Form submissions will automatically send to the form admin email
 # Configure additional notifications in Netlify Dashboard:
 # Site settings > Forms > Form notifications
+
+# Retired placeholder post
+[[redirects]]
+  from = "/blog/hello-world/"
+  to = "/blog/"
+  status = 301

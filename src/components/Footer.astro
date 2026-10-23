@@ -5,9 +5,9 @@ import { siteConfig } from '@/config/site';
 const currentYear = new Date().getFullYear();
 const quickLinks = [
   { label: 'Home', href: '/#home' },
-  { label: 'Services', href: '/#' },
+  { label: 'Services', href: '/#services' },
   { label: 'Industries', href: '/#industries' },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Case Studies', href: '/case-studies/' },
   { label: 'Insights', href: '/blog/' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' }
@@ -27,7 +27,7 @@ const serviceLinks = [
       <div class="md:col-span-2">
         <div class="mb-4 flex items-center gap-3">
           <img
-            src="/lovable-uploads/22af2fd9-7390-4312-8b89-2db9122e4680.png"
+            src="/images/logo.png"
             alt={siteConfig.title}
             class="h-8 w-8"
             loading="lazy"
@@ -38,24 +38,17 @@ const serviceLinks = [
           Intelligent automation with measurable results. Process automation, AI decision support, and data integration for manufacturing, healthcare, and publishing operations.
         </p>
         <div class="flex gap-4">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <Icon name="lucide:linkedin" class="h-6 w-6" />
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            aria-label="Twitter/X"
-          >
-            <Icon name="lucide:twitter" class="h-6 w-6" />
-          </a>
+          {siteConfig.social.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+              aria-label={link.label}
+            >
+              <Icon name={link.icon} class="h-6 w-6" />
+            </a>
+          ))}
         </div>
       </div>
 

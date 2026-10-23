@@ -7,8 +7,40 @@ import Industries from '@/components/sections/Industries.astro';
 import About from '@/components/sections/About.astro';
 import Contact from '@/components/sections/Contact.astro';
 import { siteConfig } from '@/config/site';
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${siteConfig.url}/#organization`,
+  name: siteConfig.title,
+  url: `${siteConfig.url}/`,
+  logo: `${siteConfig.url}${siteConfig.logo}`,
+  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  email: siteConfig.email,
+  description: siteConfig.description,
+  areaServed: 'US',
+  sameAs: siteConfig.social.map((link) => link.href),
+  knowsAbout: ['Data pipelines', 'Automated reporting', 'Workflow automation', 'Coda', 'Airtable', 'Google Sheets', 'Zapier', 'Make', 'Klaviyo'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Services',
+    itemListElement: siteConfig.services.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.name,
+        description: service.description,
+        url: `${siteConfig.url}${service.link}`
+      }
+    }))
+  }
+};
 ---
-<Layout title={`${siteConfig.title} · Unified Astro Platform`} description={siteConfig.description}>
+<Layout
+  title={`Data Pipelines & Automated Reporting for Ops Teams | ${siteConfig.title}`}
+  description={siteConfig.description}
+  jsonLd={organizationJsonLd}
+>
   <Hero />
   <Stats />
   <ClientLogos />

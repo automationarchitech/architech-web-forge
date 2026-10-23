@@ -25,7 +25,7 @@ const {
 
 const siteOrigin = Astro.site ?? new URL(siteConfig.url);
 const canonicalUrl = new URL(Astro.url.pathname || '/', siteOrigin);
-const ogImage = hero ? new URL(hero, siteOrigin).href : undefined;
+const ogImage = new URL(hero ?? siteConfig.ogImage, siteOrigin).href;
 const rssUrl = new URL('/rss.xml', siteOrigin).href;
 const sitemapUrl = new URL('/sitemap-0.xml', siteOrigin).href;
 const faviconSvg = new URL('/favicon.svg', siteOrigin).href;
@@ -63,13 +63,13 @@ const commentsToggleScript = new URL('/toggle-theme.js', siteOrigin).href;
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content={siteConfig.title} />
-  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta property="og:image" content={ogImage} />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content={canonicalUrl.href} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  {ogImage && <meta name="twitter:image" content={ogImage} />}
+  <meta name="twitter:image" content={ogImage} />
 
   {published && <meta property="article:published_time" content={published} />}
   {updated && <meta property="article:modified_time" content={updated} />}

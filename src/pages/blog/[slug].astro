@@ -6,24 +6,25 @@ import UtterancesComments from '@/components/blog/UtterancesComments.astro';
 import { siteConfig } from '@/config/site';
 
 export const getStaticPaths = async () => {
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post }
   }));
 };
 
-const { post } = Astro.props as { post: CollectionEntry<'posts'> };
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 const { Content, headings } = await post.render();
 
-const description = post.data.excerpt ?? 'Read the latest update from Automation Architech.';
-const publicationDate = post.data.date.toLocaleDateString(undefined, {
+const description = post.data.description;
+const updatedDate = post.data.updatedDate ?? post.data.publishDate;
+const publicationDate = post.data.publishDate.toLocaleDateString(undefined, {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 });
 
-const asideDate = post.data.date.toLocaleDateString(undefined, {
+const asideDate = post.data.publishDate.toLocaleDateString(undefined, {
   year: 'numeric',
   month: 'short',
   day: 'numeric'
@@ -34,23 +35,24 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: post.data.title,
   description,
-  datePublished: post.data.date.toISOString(),
-  dateModified: post.data.date.toISOString(),
+  datePublished: post.data.publishDate.toISOString(),
+  dateModified: updatedDate.toISOString(),
+  articleSection: post.data.category,
+  keywords: post.data.tags.join(', '),
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': `${siteConfig.url}/blog/${post.slug}/`
   },
-  author: {
-    '@type': 'Organization',
-    name: siteConfig.title,
-    url: siteConfig.url
-  },
+  author:
+    post.data.author === siteConfig.title
+      ? { '@type': 'Organization', name: siteConfig.title, url: siteConfig.url }
+      : { '@type': 'Person', name: post.data.author },
   publisher: {
     '@type': 'Organization',
     name: siteConfig.title,
     logo: {
       '@type': 'ImageObject',
-      url: `${siteConfig.url}/favicon.svg`
+      url: `${siteConfig.url}${siteConfig.logo}`
     }
   }
 };
@@ -60,8 +62,13 @@ if (post.data.hero) {
   articleJsonLd.image = `${siteConfig.url}${post.data.hero}`;
 }
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+const allCaseStudies = await getCollection('case-studies');
+const relatedCaseStudies = post.data.relatedCaseStudies
+  .map((slug) => allCaseStudies.find((study) => study.slug === slug))
+  .filter((study): study is (typeof allCaseStudies)[number] => study !== undefined);
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 const tags = Array.from(new Set(posts.flatMap((entry) => entry.data.tags ?? []))).sort((a, b) =>
   a.localeCompare(b)
@@ -80,8 +87,8 @@ const indentClass = (depth: number) => {
   description={description}
   hero={post.data.hero}
   seoType="article"
-  publishedAt={post.data.date}
-  updatedAt={post.data.date}
+  publishedAt={post.data.publishDate}
+  updatedAt={updatedDate}
   jsonLd={articleJsonLd}
 >
   <article class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
@@ -91,7 +98,11 @@ const indentClass = (depth: number) => {
           <p class="text-sm uppercase tracking-[0.3em] text-gray-500">Blog</p>
           <h1 class="text-4xl font-semibold text-gray-900">{post.data.title}</h1>
           <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500">
-            <time datetime={post.data.date.toISOString()}>{publicationDate}</time>
+            <span>{post.data.author}</span>
+            <span aria-hidden="true">·</span>
+            <span>{post.data.category}</span>
+            <span aria-hidden="true">·</span>
+            <time datetime={post.data.publishDate.toISOString()}>{publicationDate}</time>
             {post.data.tags?.length > 0 && (
               <ul class="flex flex-wrap gap-2">
                 {post.data.tags.map((tag) => (
@@ -103,7 +114,7 @@ const indentClass = (depth: number) => {
           {post.data.hero && (
             <img
               src={post.data.hero}
-              alt="Hero image"
+              alt=""
               class="h-80 w-full rounded-2xl object-cover"
               loading="lazy"
             />
@@ -114,7 +125,22 @@ const indentClass = (depth: number) => {
           <Content />
         </div>
 
-        <UtterancesComments issueTerm={issueTerm} />
+        {relatedCaseStudies.length > 0 && (
+          <section class="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+            <h2 class="text-lg font-semibold text-gray-900">Related case studies</h2>
+            <ul class="mt-4 space-y-3">
+              {relatedCaseStudies.map((study) => (
+                <li>
+                  <a class="text-gray-700 underline-offset-4 transition hover:text-gray-900 hover:underline" href={`/case-studies/${study.slug}/`}>
+                    {study.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {post.data.comments && <UtterancesComments issueTerm={issueTerm} />}
       </div>
 
       <aside class="w-full space-y-6 lg:w-80">
