@@ -10,6 +10,7 @@ const contactSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   company: z.string().min(2, 'Company name must be at least 2 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  'bot-field': z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -30,12 +31,13 @@ export default function ContactForm() {
     try {
       setIsSubmitting(true);
 
-      // Submit to Netlify Forms
-      const response = await fetch('/', {
+      // Submit to Netlify Forms (form is defined statically in public/__forms.html)
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
           'form-name': 'contact',
+          'bot-field': data['bot-field'] ?? '',
           name: data.name,
           email: data.email,
           company: data.company,
@@ -74,7 +76,7 @@ export default function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
       <div className="hidden">
         <label>
-          Don't fill this out if you're human: <input name="bot-field" />
+          Don't fill this out if you're human: <input {...register('bot-field')} tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
