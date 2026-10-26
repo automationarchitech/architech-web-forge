@@ -13,3 +13,9 @@
   from = "/blog/hello-world/"
   to = "/blog/"
   status = 301
+
+# Astro's sitemap integration writes sitemap-index.xml, not sitemap.xml
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
