@@ -15,6 +15,26 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+// Attribution fields stored by the tracking script in Layout.astro
+const attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'landing_page'];
+
+function readAttribution(): Record<string, string> {
+  try {
+    const stored = JSON.parse(localStorage.getItem('aa_attribution') ?? '{}');
+    return Object.fromEntries(
+      attributionKeys.filter((key) => typeof stored[key] === 'string').map((key) => [key, stored[key]])
+    );
+  } catch {
+    return {};
+  }
+}
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -42,10 +62,13 @@ export default function ContactForm() {
           email: data.email,
           company: data.company,
           message: data.message,
+          ...readAttribution(),
         }).toString(),
       });
 
       if (!response.ok) throw new Error('Submission failed');
+
+      window.gtag?.('event', 'generate_lead', { form_name: 'contact' });
 
       // Success
       toast.success('Message received!', {
