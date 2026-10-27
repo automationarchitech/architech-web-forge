@@ -60,14 +60,14 @@ const commentsToggleScript = new URL('/toggle-theme.js', siteOrigin).href;
   <meta name="description" content={description} />
 
   <meta property="og:type" content={seoType} />
-  <meta property="og:url" content={canonicalUrl.href} />
+  {!noindex && <meta property="og:url" content={canonicalUrl.href} />}
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:site_name" content={siteConfig.title} />
   <meta property="og:image" content={ogImage} />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content={canonicalUrl.href} />
+  {!noindex && <meta name="twitter:url" content={canonicalUrl.href} />}
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
