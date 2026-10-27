@@ -19,3 +19,27 @@
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
   status = 301
+
+# Retired test post from the early Astro build (src/content/posts/Hammer.mdx)
+[[redirects]]
+  from = "/blog/hammer/"
+  to = "/blog/"
+  status = 301
+
+# Lovable-era assets that Google may still request
+[[redirects]]
+  from = "/lovable-uploads/*"
+  to = "/images/logo.png"
+  status = 301
+
+[[redirects]]
+  from = "/placeholder.svg"
+  to = "/images/og-default.png"
+  status = 301
+
+# /404 itself was the canonical/og:url of the 404 page and got indexed as a soft 404.
+# Netlify's own not-found handling serves 404.html internally, so this only catches direct visits.
+[[redirects]]
+  from = "/404"
+  to = "/"
+  status = 301
