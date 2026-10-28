@@ -22,7 +22,7 @@ declare global {
 }
 
 // Attribution fields stored by the tracking script in Layout.astro
-const attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'landing_page'];
+const attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'landing_page'];
 
 function readAttribution(): Record<string, string> {
   try {
