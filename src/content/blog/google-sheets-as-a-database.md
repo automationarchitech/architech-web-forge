@@ -6,7 +6,7 @@ author: "Automation Architech"
 category: "Data Integration"
 tags: ["google sheets", "google sheets as a database", "google sheets alternative", "data pipelines", "ops automation"]
 featured: true
-draft: true
+draft: false
 relatedPosts: []
 relatedCaseStudies: ["manufacturing-production-scheduling", "content-strategy-growth"]
 ---
@@ -52,7 +52,7 @@ The Sheets API's `values.append` method writes into existing empty cells at the 
 
 The documented workaround is to set `insertDataOption=INSERT_ROWS`, which inserts new rows instead of filling existing ones. Many no-code connectors don't expose that setting, so teams using Zapier or Make often can't turn it on.
 
-**Example:** <!-- TODO(Doug): Bookshop story. What was the sheet used for, roughly how many rows and how many automations wrote to it, what did the clashes look like (lost rows, failed batches), and how did you find out? Two or three sentences with one specific number. -->
+**Example:** [Bookshop example goes here: what the sheet held, how many rows and automations wrote to it, and what the failures looked like.]
 
 ### Batch Updates Are Atomic, but Only Within One Request
 
