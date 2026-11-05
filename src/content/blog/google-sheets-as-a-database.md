@@ -52,7 +52,7 @@ The Sheets API's `values.append` method writes into existing empty cells at the 
 
 The documented workaround is to set `insertDataOption=INSERT_ROWS`, which inserts new rows instead of filling existing ones. Many no-code connectors don't expose that setting, so teams using Zapier or Make often can't turn it on.
 
-**Example:** [Bookshop example goes here: what the sheet held, how many rows and automations wrote to it, and what the failures looked like.]
+**Example:** We saw this firsthand with an online bookseller. Klaviyo's API had no clear way to pull email link activity, so we strung several API calls together to rebuild the data shown in Klaviyo's interface and wrote it to Google Sheets in batches. Once the sheet passed about 500,000 rows, new batches often overwrote older rows before they finished writing, and some older rows simply disappeared. With only 10 columns, that was about 5 million cells, half of Google's 10 million cell limit. The workaround was starting a fresh holding sheet roughly every quarter, which kept the data intact but split one dataset across several files.
 
 ### Batch Updates Are Atomic, but Only Within One Request
 
