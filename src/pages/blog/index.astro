@@ -5,7 +5,7 @@ import PostListItem from '@/components/blog/PostListItem.astro';
 import BlogAside from '@/components/blog/BlogAside.astro';
 import { siteConfig } from '@/config/site';
 
-const pageTitle = 'Automation Architech Blog';
+const pageTitle = 'Automation Architech Insights';
 const pageDescription = 'Practical guides on data pipelines, automated reporting and workflow automation for teams running on Coda, Airtable, Google Sheets and Zapier.';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
