@@ -9,8 +9,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: `${siteConfig.title} Blog`,
-    description: 'Automation Architech blog feed',
+    title: `${siteConfig.title} Insights`,
+    description: 'Automation Architech insights feed',
     site: context.site ?? new URL(siteConfig.url),
     items: posts.map((post) => ({
       title: post.data.title,
