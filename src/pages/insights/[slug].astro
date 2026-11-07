@@ -41,7 +41,7 @@ const articleJsonLd = {
   keywords: post.data.tags.join(', '),
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': `${siteConfig.url}/blog/${post.slug}/`
+    '@id': `${siteConfig.url}/insights/${post.slug}/`
   },
   author:
     post.data.author === siteConfig.title
@@ -73,6 +73,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 const tags = Array.from(new Set(posts.flatMap((entry) => entry.data.tags ?? []))).sort((a, b) =>
   a.localeCompare(b)
 );
+// Kept on the old /blog/ path so Utterances keeps matching any comment threads opened before the move to /insights/.
 const issueTerm = `/blog/${post.slug}/`;
 
 const indentClass = (depth: number) => {
@@ -95,7 +96,7 @@ const indentClass = (depth: number) => {
     <div class="flex flex-col gap-10 lg:flex-row">
       <div class="flex-1 space-y-10">
         <header class="space-y-4">
-          <p class="text-sm uppercase tracking-[0.3em] text-gray-500"><a class="hover:text-gray-900" href="/blog/">Insights</a></p>
+          <p class="text-sm uppercase tracking-[0.3em] text-gray-500"><a class="hover:text-gray-900" href="/insights/">Insights</a></p>
           <h1 class="text-4xl font-semibold text-gray-900">{post.data.title}</h1>
           <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500">
             <span>{post.data.author}</span>

@@ -21,10 +21,10 @@ const listingJsonLd = {
   '@type': 'Blog',
   name: pageTitle,
   description: pageDescription,
-  url: `${siteConfig.url}/blog/`,
+  url: `${siteConfig.url}/insights/`,
   blogPost: posts.slice(0, 10).map((post) => ({
     '@type': 'BlogPosting',
-    url: `${siteConfig.url}/blog/${post.slug}/`,
+    url: `${siteConfig.url}/insights/${post.slug}/`,
     headline: post.data.title,
     datePublished: post.data.publishDate.toISOString()
   }))
