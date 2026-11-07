@@ -11,7 +11,7 @@
 # Retired placeholder post
 [[redirects]]
   from = "/blog/hello-world/"
-  to = "/blog/"
+  to = "/insights/"
   status = 301
 
 # Astro's sitemap integration writes sitemap-index.xml, not sitemap.xml
@@ -23,7 +23,19 @@
 # Retired test post from the early Astro build (src/content/posts/Hammer.mdx)
 [[redirects]]
   from = "/blog/hammer/"
-  to = "/blog/"
+  to = "/insights/"
+  status = 301
+
+# The Insights section moved from /blog/ to /insights/ (2026-11-07).
+# Keep these after the retired-post rules above, since Netlify uses the first match.
+[[redirects]]
+  from = "/blog"
+  to = "/insights/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/insights/:splat"
   status = 301
 
 # Lovable-era assets that Google may still request

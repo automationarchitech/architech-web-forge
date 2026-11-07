@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const permalink = `/blog/${post.slug}/`;
+const permalink = `/insights/${post.slug}/`;
 const formattedDate = post.data.publishDate.toLocaleDateString(undefined, {
   year: 'numeric',
   month: 'long',

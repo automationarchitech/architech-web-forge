@@ -23,7 +23,7 @@ export const siteConfig = {
     { label: 'Services', href: '/#services' },
     { label: 'Industries', href: '/#industries' },
     { label: 'Case Studies', href: '/case-studies/' },
-    { label: 'Insights', href: '/blog/' },
+    { label: 'Insights', href: '/insights/' },
     { label: 'Contact', href: '/#contact' }
   ],
   services: [

@@ -14,7 +14,7 @@ const { latestPosts, tags } = Astro.props;
     <ul class="mt-4 space-y-3 text-sm">
       {latestPosts.map((post) => (
         <li>
-          <a class="text-gray-700 transition hover:text-gray-900" href={`/blog/${post.slug}/`}>
+          <a class="text-gray-700 transition hover:text-gray-900" href={`/insights/${post.slug}/`}>
             {post.data.title}
           </a>
         </li>
