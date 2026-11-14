@@ -1,6 +1,6 @@
 ---
 title: "Employee Onboarding Automation: A Practical Setup for Google Workspace and Slack"
-description: "How to automate employee onboarding and offboarding for a 10-200 person team on Google Workspace and Slack, from one hire record to accounts, access and day-one checklists."
+description: "Automate employee onboarding and offboarding on Google Workspace and Slack: one hire record drives accounts, group access and day-one checklists."
 publishDate: "2026-11-14"
 author: "Automation Architech"
 category: "Process Automation"
