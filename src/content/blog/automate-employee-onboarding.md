@@ -46,7 +46,7 @@ Manual onboarding fails quietly. Each missed step costs only an hour or a day, s
 
 You don't need a new HR platform to do this well. You need four pieces, and most teams already pay for three of them.
 
-![Flow diagram: an ATS or HR system and role templates feed one hire record. Three days before the start date, automation creates the Google Workspace account and groups, then the Slack account, and creates a task list for the manager, IT and HR. When an end date is set, offboarding suspends the account, transfers files, removes groups and deactivates Slack.](/images/insights/automate-employee-onboarding-flow.webp)
+![Flow diagram: an ATS or HR system and role templates feed one hire record. Three days before the start date, automation creates the Google Workspace account and groups, then the Slack account, and creates a task list for the manager, IT and HR. When an end date is set, offboarding suspends the account, transfers files, removes groups and deactivates Slack. A dashed arrow shows each automated step writing its result back to the hire record.](/images/insights/automate-employee-onboarding-flow.webp)
 
 *One hire record drives both onboarding and offboarding. Every automated step writes its result back to the record.*
 
