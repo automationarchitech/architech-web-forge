@@ -8,6 +8,157 @@
 # Configure additional notifications in Netlify Dashboard:
 # Site settings > Forms > Form notifications
 
+# Automation Architech is now HyperLight Ops (2026-11-16).
+# Every request to the automationarchitech.com domains 301s to the matching page on hyperlightops.com.
+# Insight and case-study slugs are the same on both sites, so those keep their paths;
+# the old service pages go to /approach/, and anything else goes to the home page.
+# Rules are scoped to the production hosts, so *.netlify.app deploy previews still serve this site.
+# They sit above every other rule because Netlify uses the first match.
+
+[[redirects]]
+  from = "https://automationarchitech.com/blog/hello-world/"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/blog/hammer/"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/blog"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/blog/*"
+  to = "https://hyperlightops.com/insights/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/insights/*"
+  to = "https://hyperlightops.com/insights/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/case-studies/*"
+  to = "https://hyperlightops.com/case-studies/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/services/*"
+  to = "https://hyperlightops.com/approach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/rss.xml"
+  to = "https://hyperlightops.com/rss.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/sitemap.xml"
+  to = "https://hyperlightops.com/sitemap-index.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/sitemap-index.xml"
+  to = "https://hyperlightops.com/sitemap-index.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/images/og-default.png"
+  to = "https://hyperlightops.com/images/og-default.png"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://automationarchitech.com/*"
+  to = "https://hyperlightops.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/blog/hello-world/"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/blog/hammer/"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/blog"
+  to = "https://hyperlightops.com/insights/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/blog/*"
+  to = "https://hyperlightops.com/insights/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/insights/*"
+  to = "https://hyperlightops.com/insights/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/case-studies/*"
+  to = "https://hyperlightops.com/case-studies/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/services/*"
+  to = "https://hyperlightops.com/approach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/rss.xml"
+  to = "https://hyperlightops.com/rss.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/sitemap.xml"
+  to = "https://hyperlightops.com/sitemap-index.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/sitemap-index.xml"
+  to = "https://hyperlightops.com/sitemap-index.xml"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/images/og-default.png"
+  to = "https://hyperlightops.com/images/og-default.png"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.automationarchitech.com/*"
+  to = "https://hyperlightops.com/"
+  status = 301
+  force = true
+
 # Retired placeholder post
 [[redirects]]
   from = "/blog/hello-world/"
