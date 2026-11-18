@@ -14,46 +14,49 @@
 # the old service pages go to /approach/, and anything else goes to the home page.
 # Rules are scoped to the production hosts, so *.netlify.app deploy previews still serve this site.
 # They sit above every other rule because Netlify uses the first match.
+# Page redirects add ?via=automationarchitech so GA4 on hyperlightops.com can count redirected visits
+# (filter Page location contains "via=automationarchitech") without overwriting the visit's real source.
+# hyperlightops.com pages carry a canonical tag, so the parameter doesn't create duplicate URLs in Google.
 
 [[redirects]]
   from = "https://automationarchitech.com/blog/hello-world/"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/blog/hammer/"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/blog"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/blog/*"
-  to = "https://hyperlightops.com/insights/:splat"
+  to = "https://hyperlightops.com/insights/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/insights/*"
-  to = "https://hyperlightops.com/insights/:splat"
+  to = "https://hyperlightops.com/insights/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/case-studies/*"
-  to = "https://hyperlightops.com/case-studies/:splat"
+  to = "https://hyperlightops.com/case-studies/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://automationarchitech.com/services/*"
-  to = "https://hyperlightops.com/approach/"
+  to = "https://hyperlightops.com/approach/?via=automationarchitech"
   status = 301
   force = true
 
@@ -83,49 +86,49 @@
 
 [[redirects]]
   from = "https://automationarchitech.com/*"
-  to = "https://hyperlightops.com/"
+  to = "https://hyperlightops.com/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/blog/hello-world/"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/blog/hammer/"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/blog"
-  to = "https://hyperlightops.com/insights/"
+  to = "https://hyperlightops.com/insights/?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/blog/*"
-  to = "https://hyperlightops.com/insights/:splat"
+  to = "https://hyperlightops.com/insights/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/insights/*"
-  to = "https://hyperlightops.com/insights/:splat"
+  to = "https://hyperlightops.com/insights/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/case-studies/*"
-  to = "https://hyperlightops.com/case-studies/:splat"
+  to = "https://hyperlightops.com/case-studies/:splat?via=automationarchitech"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.automationarchitech.com/services/*"
-  to = "https://hyperlightops.com/approach/"
+  to = "https://hyperlightops.com/approach/?via=automationarchitech"
   status = 301
   force = true
 
@@ -155,7 +158,7 @@
 
 [[redirects]]
   from = "https://www.automationarchitech.com/*"
-  to = "https://hyperlightops.com/"
+  to = "https://hyperlightops.com/?via=automationarchitech"
   status = 301
   force = true
 
